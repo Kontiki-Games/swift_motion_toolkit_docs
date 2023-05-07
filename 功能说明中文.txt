@@ -1,0 +1,76 @@
+概述
+Swift Motion Toolkit 是一套集成Mocap资源导入、重定向和Root Motion处理等功能于一体的角色动画工具。同时它也支持AnimSequence动画之间的重定向。
+
+功能
+1. 导入BVH格式的Mocap动画，并提供预览。
+2. 重定向Mocap动画为AnimSequence资产。
+3. 重定向AnimSequence资产。
+4. 支持以IK的方式更精确的复原末端关节的位置。
+5. 支持将动画同步至IK骨骼。
+6. 支持将垂直或（和）水平方向的Root位移烘焙至动画。
+7. 支持仅保留水平方向的根旋转。
+8. 支持将RootMotion转为原地动画。
+
+相关资产
+1. Motion Hierarchy
+Motion Hierarchy 资产记录了Mocap动画使用的的骨架拓扑结构并包含了一个重定向基础姿势。
+
+2. Motion Data
+Motion Data 记录了 Mocap 动画的一系列与时间相关的姿势数据。并持有对一个 Motion Hierarchy 资产的引用。该 Motion Hierarchy 资产可以解释 Motion Data 中每个姿势的拓扑结构。
+
+3. Motion Hierarchy Retargetable
+Motion Hierarchy Retargetable 持有一个 Motion Hierarchy 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在Motion Hierarchy Retargetable中定义重定向基础姿势，则在重定向时将使用 Motion Hierarchy 中的重定向基础姿势）。
+
+4. Skeleton Hierarchy
+Skeleton Hierarchy 持有一个 USkeleton 资产的引用。 该资产允许用户定义新的重定向基础姿势（如果不在Skeleton Hierarchy中定义重定向基础姿势，则在重定向时将使用 USkeleton 中的重定向基础姿势）。
+
+5. Skeleton Hierarchy Retargetable
+Skeleton Hierarchy Retargetable 持有一个 Skeleton Hierarchy 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 Skeleton Hierarchy Retargetable中定义重定向基础姿势，则在重定向时将使用 Skeleton Hierarchy 中的重定向基础姿势）。
+
+6. Motion to AnimSeq Retargeter
+Motion to AnimSeq Retargeter 持有一对 Hierarchy Retargetable 作为重定向的源和目标。 该资产允许用户对源和目标的骨骼链映射表，和FK、IK以及Root Motion进行配置。并提供重定向结果的预览和导出。
+
+编辑器
+1. Motion Data Editor
+支持对 Motion Data 的预览。
+
+2. Motion Hierarchy Editor
+支持对 Motion Hierarchy 的预览和编辑。
+
+3. Motion Hierarchy Retargetable Editor
+支持对 Motion Hierarchy Retargetable 的预览和编辑。
+
+4. Skeleton Hierarchy Editor
+支持对 Skeleton Hierarchy 的预览和编辑。
+
+5. Skeleton Hierarchy Retargetable Editor
+支持对 Skeleton Hierarchy Retargetable 的预览和编辑。
+
+6. Motion to AnimSeq Retargeter Editor
+支持对 Motion to AnimSeq Retargeter 的预览和编辑。
+
+Quick Start
+Mocap 动画重定向至 AnimSequence资产
+1. 导入动作捕捉资源。
+
+2. 创建 Motion Hierarchy Retargetable 资产。
+
+3. 创建 Skeleton Hierarchy 资产。
+
+4. 创建 Skeleton Hierarchy Retargetable 资产。
+
+5. 创建 Motion to AnimSeq Retargeter
+
+AnimSequence资产间的重定向
+1. 导入动作捕捉资源。
+
+2. 创建源动画的 Skeleton Hierarchy 资产。
+
+3. 创建源动画的 Skeleton Hierarchy Retargetable 资产。
+
+3. 创建目标动画的 Skeleton Hierarchy 资产。
+
+4. 创建目标动画的 Skeleton Hierarchy Retargetable 资产。
+
+5. 创建 Motion to AnimSeq Retargeter。
+
