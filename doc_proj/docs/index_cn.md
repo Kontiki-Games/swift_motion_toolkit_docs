@@ -26,6 +26,7 @@
 * Motion Hierarchy
 
     *Motion Hierarchy* 资产记录了Mocap动画使用的的骨架拓扑结构并包含了一个重定向基础姿势。
+    
 
 * Motion Data
 
@@ -48,32 +49,143 @@
     *Motion to AnimSeq Retargeter* 持有一对 *Hierarchy Retargetable* 作为重定向的源和目标。 该资产允许用户对源和目标的骨骼链映射表，和FK、IK以及Root Motion进行配置。并提供重定向结果的预览和导出。
 
 ##编辑器
-* Motion Data Editor
 
-    支持对 Motion Data 的预览。
-![motion_data_editor_overview](img/motion_data_editor_overview.png)
 
-* Motion Hierarchy Editor
-
-    支持对 Motion Hierarchy 的预览和编辑。
+###Motion Hierarchy Editor
+支持对 Motion Hierarchy 的预览和编辑。
 ![motion_hierarchy_editor_overview](img/motion_hierarchy_editor_overview.png)
 
-* Motion Hierarchy Retargetable Editor
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details
+
+![motion_data_editor_overview](img/motion_date_editor_asset_details.png)
+
+Property | Description
+------------ | -------------
+Left Joint Identification | 关节名称中左边的标识 
+Left Joint Display Color | 左边关节显示的颜色
+Right Joint Identification | 关节名称中右边的标识
+Right Joint Display Color | 右边关节显示的颜色
+Other Joint Display Color | 其它关节显示的颜色
+
+####3. Viewport Tab
+
+![hierarchy_viewport_details_tab](img/hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####5. Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | 将视口中的姿势写入 *Retarget Base Pose* 
+Restore to Base Pose | 将 *Retarget Base Pose* 还原至视口
+Reset Pose | 将参考姿势写入 *Retarget Base Pose* 
+
+
+
+###Motion Data Editor
+
+    支持对 Motion Data 的预览。
+    
+![motion_data_editor_overview](img/motion_data_editor_overview.png)
+
+
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_hierarchy_retargetable_asset_details_tab](img/motion_data_asset_details_tab.png)
+
+####3. Viewport Tab
+
+![motion_hierarchy_viewport_details_tab](img/motion_viewport_details_tab.png)
+
+####4. Player Controller Tab
+
+![player_controller_tab](img/player_controller_tab.png)
+
+通过滚轮可以进行缩放
+![motion_data_player_controller_zoom](img/motion_data_player_controller_zoom.gif)
+
+右键拖拽可以左右平移时间轴
+![motion_data_player_controller_pan](img/motion_data_player_controller_pan.gif)
+
+####5. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####6. Motion Data Browser Tab
+
+![motion_data_browser](img/motion_data_browser.png)
+
+
+
+###Motion Hierarchy Retargetable Editor
 
     支持对 Motion Hierarchy Retargetable 的预览和编辑。
+    
 ![motion_hierarchy_retargetable_overview](img/motion_hierarchy_retargetable_overview.png)
 
-* Skeleton Hierarchy Editor
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_hierarchy_retargetable_asset_details_tab](img/motion_hierarchy_retargetable_asset_details_tab.png)
+
+####3. Viewport Tab
+
+![motion_hierarchy_viewport_details_tab](img/motion_hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####5. Edit Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | 将视口中的姿势写入 *Retarget Base Pose* 
+Restore to Base Pose | 将 *Retarget Base Pose* 还原至视口
+Reset Pose | 将参考姿势写入 *Retarget Base Pose* 
+
+####6. Retarget Chains Tab
+
+![chain_settings](img/chain_settings.png)
+
+允许复制黏贴
+
+![retarget_chain_copy_paste.gif](img/retarget_chain_copy_paste.gif)
+
+
+
+###Skeleton Hierarchy Editor
 
     支持对 Skeleton Hierarchy 的预览和编辑。
-![skeleton_hierarchy_editor_overview.png](img/skeleton_hierarchy_editor_overview.png)
 
-* Skeleton Hierarchy Retargetable Editor
+###Skeleton Hierarchy Retargetable Editor
 
     支持对 Skeleton Hierarchy Retargetable 的预览和编辑。
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_retargetable_editor_overview.png)
 
-* Motion to AnimSeq Retargeter Editor
+
+
+
+
+###Motion to AnimSeq Retargeter Editor
 
     支持对 Motion to AnimSeq Retargeter 的预览和编辑。
 ![motion_to_animseq_retargeter_editor_overview](img/motion_to_animseq_retargeter_editor_overview.png)
@@ -374,26 +486,5 @@
 ![mixamo_to_ue_mesh_preview](img/mixamo_to_ue_mesh_preview.gif)
 
 
-##Properties
-Property | Description
------------- | -------------
-Bone to Modify | Name of bone to control. This is the main bone chain to modify from. 
-Look at Target | Target socket to look at. Used if LookAtBone is empty. - You can use  LookAtLocation if you need offset from this point. That location will be used in their local space. 
-Use Look Up Axis | Whether or not to use Look up axis 
-Up Axis Locked | If useLookUpAxis is enabled, whether or not to lock the Up Axis.
-Look Up Axis | If the Up Axis is used, System will try to rotate the bone around it until Forward Axis point to the desired point or be clamped.
-Look at Clamp | Look at Clamp value in degrees - it will clamp the modified look at axis in a cone which aligns to the original forward axis direction.
-Clamp Ratio | Clamp Ratio is the ratio of dimension in the pitch and yaw directions. 
-Approximate Clamp | Approximate Clamp is only effect when Use Up Axis is enabled and Up Axis Locked is disabled. It is a trade-off between performance and precision.
-Interpolated |  Whether or not interpolated.
-Interpolation Speed | Change rate of the interpolated parameter.
-Look at Target | Target socket to look at. Used if LookAtBone is empty. - You can use  LookAtLocation if you need offset from this point. That location will be used in their local space. 
-Look at Location | Target Offset. It's in world space if LookAtBone is empty or it is based on LookAtBone or LookAtSocket in their local space
-Show Bone Frame | Whether or not show the axes of the local coordinate system of Joint(Bone)
-Show Original Lock at Axis | Whether or not show the orignal LookAt Axis.
-Show Original Up Axis | Whether or not show the orignal Up Axis.
-Show Modified Look at Axis | Whether or not show the modified LookAt Axis.
-Show Modified Up Axis | Whether or not show the modified Up Axis. 
-Show Clamp Cone | Whether or not show the Clamp Cone. 
-Show Desired Target | Whether or not show desired target. 
+
 
