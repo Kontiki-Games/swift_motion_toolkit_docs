@@ -2,22 +2,18 @@
 
 ##Overview
 
-*Swift Look At* is a custom LookAt animation node for Unreal Engine. It is similar to the built-in equivalent, but more accurately and naturally.
+*Swift Motion Toolkit* is a set of character animation tools that integrates functions such as mo-cap resource import, animation retargeting, and Root Motion processing, etc. At the same time, it also supports retargeting AnimSequence assets between different characters. 
 
 ##Features
 
-* Keep the control target from rolling while rotating it to face the target, so it can behave more naturally.
-* Contrary to the built-in equivalent, *Swift Look At* applying alpha first, then clamp the rotation, which ensures it is more accurate.
-* Visual debugging information is very rich and intuitive, which is convenient for users to locate problems.
-
-##Executable Demo
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/EmAo4ZGtHHA" frameborder="0" allowfullscreen></iframe>
-* This is a side-by-side comparison demo.
-* You can compare the Swift Look At and the Engine built-in equivalent before buy it.
-* It exposes as many settings as possible to allow you have a complete comparison of the product.
-[download Executable Comparison Demo](https://1drv.ms/u/s!AnOsUaO73ILcbdoOO4HCt4AxJXY)
-
+* Import mo-cap animation in BVH format and provide a preview.
+* Retarget mo-cap animation to AnimSequence asset. 
+* Retarget mo-cap animation to AnimSequence asset. 
+* Supports more precise restoration of the position of end joints using IK.Supports more precise restoration of the position of end joints using IK.
+* Supports synchronizing animation to IK bones.v
+* Supports baking vertical or (and) horizontal root displacements into animations.
+* Support for selectively preserving root rotation.
+* Support for converting animations with root motion to in-place animations. 
 
 ##Showcase
 
@@ -25,149 +21,641 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jM3J4OttxXs" frameborder="0" allowfullscreen></iframe>
 
-##Properties
+
+
+##Related assets
+###Motion Hierarchy
+
+*Motion Hierarchy* asset contains the skeleton hierarchy used in mo-cap animation and a retarget base pose.
+    
+
+###Motion Data
+
+*Motion Data* contains a series of pose data related to time in mo-cap animations. And hold a reference to a Motion Hierarchy asset. This Motion Hierarchy asset can explain the hierarchy of each pose in Motion Data. 
+
+###Motion Hierarchy Retargetable
+
+*Motion Hierarchy Retargetable* holds a reference to a *Motion Hierarchy* asset. This asset allows users to define several bone chains for action retarget, and allows users to define new retarget base poses (if the retarget base pose is not defined in *Motion Hierarchy Retargetable*, the retarget base pose in *Motion Hierarchy* will be used). 
+
+###Skeleton Hierarchy
+
+*Skeleton Hierarchy* holds a reference to a *USkeleton* asset. This asset allows users to define a new retarget base pose (if the retarget base pose is not defined in *Skeleton Hierarchy*, the retarget base pose in *USkeleton* will be used). 
+
+###Skeleton Hierarchy Retargetable
+
+*Skeleton Hierarchy Retargetable* holds a reference to a Skeleton Hierarchy * asset. This asset allows users to define several bone chains for action retarget, and a new retarget base pose (if the retarget base pose is not defined in *Skeleton Hierarchy Retargetable*, the retarget base pose in *Skeleton Hierarchy* will be used). 
+
+###Motion to AnimSeq Retargeter
+
+*Motion to AnimSeq Retargeter* holds a pair of *Hierarchy Retargetable* as the source and target for retarget. This asset allows users to configure the bone chain mapping tables of the source and target, as well as FK, IK, and Root Motion. And provide a preview and export of the retarget results. 
+
+
+##Editor
+
+
+###Motion Hierarchy Editor
+Support preview and editing of Motion Hierarchy. 
+
+![motion_hierarchy_editor_overview](img/motion_hierarchy_editor_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details
+
+![motion_data_editor_overview](img/motion_date_editor_asset_details.png)
+
 Property | Description
 ------------ | -------------
-Bone to Modify | Name of bone to control. This is the main bone chain to modify from. 
-Look at Target | Target socket to look at. Used if LookAtBone is empty. - You can use  LookAtLocation if you need offset from this point. That location will be used in their local space. 
-Use Look Up Axis | Whether or not to use Look up axis 
-Up Axis Locked | If useLookUpAxis is enabled, whether or not to lock the Up Axis.
-Look Up Axis | If the Up Axis is used, System will try to rotate the bone around it until Forward Axis point to the desired point or be clamped.
-Look at Clamp | Look at Clamp value in degrees - it will clamp the modified look at axis in a cone which aligns to the original forward axis direction.
-Clamp Ratio | Clamp Ratio is the ratio of dimension in the pitch and yaw directions. 
-Approximate Clamp | Approximate Clamp is only effect when Use Up Axis is enabled and Up Axis Locked is disabled. It is a trade-off between performance and precision.
-Interpolated |  Whether or not interpolated.
-Interpolation Speed | Change rate of the interpolated parameter.
-Look at Target | Target socket to look at. Used if LookAtBone is empty. - You can use  LookAtLocation if you need offset from this point. That location will be used in their local space. 
-Look at Location | Target Offset. It's in world space if LookAtBone is empty or it is based on LookAtBone or LookAtSocket in their local space
-Show Bone Frame | Whether or not show the axes of the local coordinate system of Joint(Bone)
-Show Original Lock at Axis | Whether or not show the orignal LookAt Axis.
-Show Original Up Axis | Whether or not show the orignal Up Axis.
-Show Modified Look at Axis | Whether or not show the modified LookAt Axis.
-Show Modified Up Axis | Whether or not show the modified Up Axis. 
-Show Clamp Cone | Whether or not show the Clamp Cone. 
-Show Desired Target | Whether or not show desired target. 
+Left Joint Identification List| Left Joint Identification List 
+Flag| The identifier in the joint name
+Type| Identification type: 1. Prefix 2. Suffix 3. Contain 
+Left Joint Display Color | The color displayed for the left joint
+Right Joint Identification List| Right Joint Identification List
+Flag| The identifier in the joint name
+Type| Identification type: 1. Prefix 2. Suffix 3. Contain 
+Right Joint Display Color | The color displayed for the right joint
+Other Joint Display Color | The color displayed for other joints
 
-##Vedio Tutorial
+(Note: Multiple elements are allowed in the identification list. If the joint name meets any of these conditions, it is judged as 'TRUE'.)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jffmkrKuUpg" frameborder="0" allowfullscreen></iframe>
+####3. Viewport Tab
+
+![hierarchy_viewport_details_tab](img/hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####5. Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | Write the pose in the viewport to *Retarget Base Pose* 
+Restore to Base Pose | Restore *Retarget Base Pose* to a viewport
+Reset Pose | Write the reference pose to *Target Base Pose*
+
+
+
+###Motion Data Editor
+
+    Support preview of Motion Data.
+    
+![motion_data_editor_overview](img/motion_data_editor_overview.png)
+
+
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_hierarchy_retargetable_asset_details_tab](img/motion_data_asset_details_tab.png)
+
+####3. Viewport Tab
+
+![motion_hierarchy_viewport_details_tab](img/motion_viewport_details_tab.png)
+
+####4. Player Controller Tab
+
+![player_controller_tab](img/player_controller_tab.png)
+
+Zoom can be done through the scroll wheel
+![motion_data_player_controller_zoom](img/motion_data_player_controller_zoom.gif)
+
+Right click drag to pan the timeline left and right
+![motion_data_player_controller_pan](img/motion_data_player_controller_pan.gif)
+
+####5. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####6. Motion Data Browser Tab
+
+![motion_data_browser](img/motion_data_browser.png)
+
+
+
+###Motion Hierarchy Retargetable Editor
+
+    Support preview and editing of Motion Hierarchy Retargetable. 
+    
+![motion_hierarchy_retargetable_overview](img/motion_hierarchy_retargetable_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![motion_hierarchy_tree_tab](img/motion_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_hierarchy_retargetable_asset_details_tab](img/motion_hierarchy_retargetable_asset_details_tab.png)
+
+####3. Viewport Tab
+
+![motion_hierarchy_viewport_details_tab](img/motion_hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![edit_retarget_base_pose](img/motion_details.png)
+
+####5. Edit Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | Write the pose in the viewport to *Retarget Base Pose* 
+Restore to Base Pose | Restore *Retarget Base Pose* to a viewport
+Reset Pose | Write the reference pose to *Target Base Pose*
+
+####6. Retarget Chains Tab
+
+![chain_settings](img/chain_settings.png)
+
+Allow copy and paste
+
+![retarget_chain_copy_paste.gif](img/retarget_chain_copy_paste.gif)
+
+
+
+###Skeleton Hierarchy Editor
+
+    Supports preview and editing of Skeleton Hierarchy.
+![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_editor_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+####2. Asset Details
+
+![motion_data_editor_overview](img/motion_date_editor_asset_details.png)
+
+Property | Description
+------------ | -------------
+Left Joint Identification List| Left Joint Identification List 
+Flag| Left Joint Identification List 
+Type| Identification type: 1. Prefix 2. Suffix 3. Contain 
+Left Joint Display Color | The color displayed for the left joint
+Right Joint Identification List| Right Joint Identification List
+Flag| The identifier in the joint name
+Type| Identification type: 1. Prefix 2. Suffix 3. Contain 
+Right Joint Display Color | The color displayed for the right joint
+Other Joint Display Color | The color displayed for other joints
+
+(Note: Multiple elements are allowed in the identification list. If the joint name meets any of these conditions, it is judged as 'TRUE'.)
+
+####3. Viewport Tab
+
+![skeleton_hierarchy_viewport_details_tab](img/skeleton_hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![skeleton_hierarchy_details](img/skeleton_hierarchy_details.png)
+
+####5. Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | Write the pose in the viewport to *Retarget Base Pose* 
+Restore to Base Pose | Restore *Retarget Base Pose* to a viewport
+Reset Pose | Write the reference pose to *Target Base Pose*
+
+
+
+###Skeleton Hierarchy Retargetable Editor
+
+    Support for preview and editing of Skeleton Hierarchy Retargetable.
+![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_retargetable_editor_overview.png)
+
+
+####1. Hierarchy Tree Tab
+
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+
+
+####2. Asset Details Tab
+
+![skeleton_hierarchy_retargetable_asset_details_tab](img/skeleton_hierarchy_retargetable_asset_details_tab.png)
+
+
+####3. IK Settings Tab
+
+![skeleton_hierarchy_retargetable_ik_settings_tab](img/skeleton_hierarchy_retargetable_ik_settings_tab.png)
+
+Control | Control | Description
+------------ | ------------ | -------------
+1 | Add New Solver | Add New Solver 
+2 | Check box | Enable/Disable solver
+3 | Trash can icon button | Delete corresponding solver
+
+(Note: Select any solver , and its configuration interface will be displayed in the Details tab.)
+
+
+####4. Viewport Tab
+
+![skeleton_hierarchy_retargetable_viewport_tab](img/skeleton_hierarchy_retargetable_viewport_tab.png)
+
+####5. Details Tab
+
+![skeleton_hierarchy_retargetable_details](img/skeleton_hierarchy_retargetable_details.png)
+
+Property | Description
+------------ | -------------
+Use Pole Vector| Whether to use pole vector 
+Pole Vector| Pole Vector 
+Target Alpha| Target application level 
+Target Alpha| Target tolerance amount
+Tip Bone Keep Local Rot| Whether the end node keeps the rotation of the Local space after applying IK, or keeps the rotation of the Global space before applying IK
+Joint Chain Name| Bone chain name 
+
+####6. Edit Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+
+Control | Description
+------------ | -------------
+Use Current Pose | Write the pose in the viewport to *Retarget Base Pose* 
+Restore to Base Pose | Restore *Retarget Base Pose* to a viewport
+Reset Pose | Write the reference pose to *Target Base Pose*
+
+
+####7. Retarget Chains Tab
+
+![skeleton_hierarchy_retargetable_chain_settings](img/skeleton_hierarchy_retargetable_chain_settings.png)
+
+Allow copy and paste
+
+![retarget_chain_copy_paste.gif](img/retarget_chain_copy_paste.gif)
+
+
+###Motion to AnimSeq Retargeter Editor
+
+    Supports retarget settings between source and target and preview of results.
+![motion_to_animseq_retargeter_editor_overview](img/motion_to_animseq_retargeter_editor_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_to_animseq_retargeter_asset_details_tab](img/motion_to_animseq_retargeter_asset_details_tab.png)
+
+Property | Description
+------------ | -------------
+Source| Source Retargetable 
+Target| Target Retargetable 
+Horizontal Root Offset Scale| Root offset scaling in the horizontal direction 
+Verticle Root Offset Scale| Root offset scaling in the vertical direction
+Convert Motion To Root Bone| Set motion to root bone
+Bake Root Rotation in Animation| Bake the rotation of the root node to the animation
+Keep Root Rotation Around Up Only| Keep Root only around the rotation in the upward direction
+Bake Root Verticle Translation in Animation| Bake the vertical displacement of the root node to the animation 
+Bake Horizontal Translation in Animation| Bake the horizontal displacement of the root node to the animation 
+Convert to In Place Animation| Whether to convert to in-place animation 
+IKCorrection Enalbe| Whether to enable IK 
+
+####3. Source Viewport Tab & Target_Viewport Tab
+
+![motion_to_animseq_retargeter_src_target_viewport_tab](img/motion_to_animseq_retargeter_src_target_viewport_tab.gif)
+
+####4. Player Controller Tab
+
+![player_controller_tab](img/player_controller_tab.png)
+
+Zoom with scroll wheel
+![motion_data_player_controller_zoom](img/motion_data_player_controller_zoom.gif)
+
+Right-click and drag to pan the timeline left and right
+![motion_data_player_controller_pan](img/motion_data_player_controller_pan.gif)
+
+####5. Details Tab
+
+![motion_to_animseq_retargeter_details](img/motion_to_animseq_retargeter_details.png)
+
+Property | Description
+------------ | -------------
+Source Chain| Source bone chain
+Target Chain| Target joint chain
+Rotation Mode| Select the mode for establishing the mapping relationship between the source and target chains.
+
+####6. Motion Data Browser Tab
+
+![motion_to_animseq_retargeter_motion_data_browser](img/motion_to_animseq_retargeter_motion_data_browser.png)
+
+####7. Chain Mapping Tab
+
+![motion_to_animseq_chain_mapping](img/motion_to_animseq_chain_mapping.png)
+
+Control | Description
+------------ | -------------
+Auto-Map Chains | Attempt to automatically pair by name.
+Drop-down menu in the Source Chain column | Manually select the source joint chain
+
 
 ##Quick Start
+####Enable plugin
 
-In the following example, we will control Mannequin and make him look at the target we specified.
+### Retarget mo-cap to AnimSequence asset
+####Import motion capture resources
 
-* We want Mannequin to have more natural motion, so we apply multiple nodes to his skeleton in a chain to approach this goal. Here we choose **Spine01**, **Spine03** and **Head**.
+Drag and drop the Mocap resource file in bvh format to the Content Browser of Unreal Engine.
 
-![1_selected_bones](img/1_selected_bones.jpg)
+![lafan_bvh_files_in_explorer](img/lafan_bvh_files_in_explorer.png)
 
-* Before we dive into it, let me introduce the basic idea behine the *Swift Look At* node. We can imagine it as a virtual fixture that clamps the target bone that we want to control. Then through calculation, we rotate the virtual fixture and in turn, the bone’s orientation is adjusted.   
-Ok, let’s get started. Firstly, we insert a *Swift Look At* node into an animation blueprint and set modified bone property with the **Head** bone. 
+You can choose to import Hierarchy assets only or Motion Data assets as well. If you need to import a Motion Data asset, you must select a compatible Hierarchy asset. You can check to import Hierarchy assets or select existing Hierarchy assets. 
 
-![2_create_node](img/2_create_node.jpg)
+![bvh_importer_option_ui](img/bvh_importer_option_ui.png)
 
-* Then, we define the virtual fixture through the node’s *Look At Axis* and *Look Up Axis*. The *Look At Axis* is the forward direction of the virtual fixture, which we want to point the target in the final. The *Look Up Axis* is the up direction of the virtual fixture, which tries its best to keep the fixture from roll type rotation; it is optional.  
-We can open the Skeleton panel of the *Persona* to watch the **Head** bone’s coordinate system. You would see the green axis pointing along the forward direction of the face（R, G, B）-- (0, 1, 0), the red axis orienting to the up direction of the head(R, G, B) -- (1, 0, 0). So we set the node property *Look At Axis* to (0, 1, 0) and *Look Up Axis* to  (1, 0, 0) and both of them are in local space.
+If you choose to import both, the result is shown in the image below:
 
-    * Note:  
-        We can set the Property *Use Look Up Axis* to tell the node whether or not to use *Look Up Axis*. If we use the *Look Up Axis*, we can tell the node whether or not to lock the *Look Up Axis* by setting the property *Look Up Axis Locked*. Built-in equivalent doesn’t provide this optional, this feature is one of several unique features *Swift Look At* provided. This feature allows you to use the *Look Up Axis*, but doesn’t force you to apply it, just uses it as a hint to avoid Roll type rotation.
+![mocap_related_assets](img/mocap_related_assets.png)
 
-![3_setting_axes](img/3_setting_axes.jpg)
+####Create the Motion Hierarchy Retargetable asset
 
-* Now, we will set the target position in world space. First we create a FVector type variable named LookAtTarget to represent the target position in the blueprint.
+by selecting the Motion Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
 
-![4_create_variable](img/4_create_variable.jpg)
+![create_motion_hierarchy_retargetable_asset](img/create_motion_hierarchy_retargetable_asset.png)
 
-* Then we use this variable in the blueprint and connect it to *Swift Look At* node’s Look At Location pin.
+In the popup select the Motion Hierarchy asset as the retarget source.
 
-![5_connect_variable](img/5_connect_variable.jpg)
+![create_motion_hierarchy_retargetable_asset_pick_hierarchy](img/create_motion_hierarchy_retargetable_asset_pick_hierarchy.png)
 
-* Click the compile button of the blueprint and set the variable to (300, 300, 1000), because we want the character to look at the top-right direction related to his body. 
+The following is the Motion Hierarchy Retargetable asset created:
 
-![6_setting_variable](img/6_setting_variable.jpg)
+![motion_hierarchy_retargetable_in_content_browser](img/motion_hierarchy_retargetable_in_content_browser.png)
 
-* We can enable the debug draw options to show the connected line between the modified bone and the looking at target and to show the modified *Look At Axis* in the meanwhile. 
+Double-click an asset to open the corresponding editor:
 
-![7_target_debug3](img/7_target_debug3.gif)
+![open_motion_hierarchy_retargetable_editor](img/open_motion_hierarchy_retargetable_editor.png)
 
-![7_target_debug](img/7_target_debug.jpg)
+Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
 
-* We need to compile the blueprint again after changing it.  
-The results don't look exactly as expected. The character’s head tends to look at the target, but doesn’t point to it exactly. There are two possibilities for this to happen:
-    1. Rotation is out of allowed range, it is simply clamped.
-    * The property *Alpha* is too small to rotate the character enough.
+![retarget_base_pose_edit_before](img/retarget_base_pose_edit_before.png)
+Before
 
-![9_not_exactly](img/9_not_exactly.jpg)
+![retarget_base_pose_edit_after](img/retarget_base_pose_edit_after.png)
+After
 
-* We can figure out what happened by turning on the property named *Show Clamp Cone*.
+In the *Edit Retarget Base Pose* panel:
 
-![10_show_cone](img/10_show_cone.jpg)
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
 
-![11_clamp_value](img/11_clamp_value.jpg)
+![use_current_pose](img/use_current_pose.png)
 
-* Oh, the problem is the degree of rotation is out of range. So we can set a larger number for the property Look at Clamp and try it again.
+In the *Joint Chain Settings* panel, it is possible to define the *Joint Chain* and the *Retargetable Root Bone* for the current *Retargetable*.
 
-![13_show_cone](img/13_show_cone.jpg)
+![motion_bone_chain_edit](img/motion_bone_chain_edit.png)
 
-![12_clamp_value](img/12_clamp_value.jpg)
+####Create the Skeleton Hierarchy asset.
 
-* Furthermore, we can set a totally large number to make the *Look At Axis* to exactly point the target like this.
+Via selecting the Skeleton Hierarchy option in the Swift Motion Toolkit category of the Content Browser context menu.
 
-![15_show_cone](img/15_show_cone.jpg)
+![create_skeleton_hierarchy](img/create_skeleton_hierarchy.png)
 
-![14_clamp_value](img/14_clamp_value.jpg)
 
-* We can also enable *Show Original Look at Axis* property to figure out how much degree of rotation applied on earth.
+Select the Skeletal Mesh asset in the popup .
 
-![16_enable_origin_forward](img/16_enable_origin_forward.jpg)
+![create_skeleton_hierarchy_pick_mesh](img/create_skeleton_hierarchy_pick_mesh.png)
 
-![17_enable_origin_forward](img/17_enable_origin_forward.jpg)
+The Skeleton Hierarchy asset created is as follows :
 
-* So we can determine the rotation changed according to the *Alpha* whether or not in our expectation.  
-Like this, when clamp is not applied to the rotation:
-    * if we set *Alpha* to 0.2, the final rotation is original’s 20%;
-	
-    ![18_alpha_0.2](img/18_alpha_0.2.jpg)
+![skeleton_hierarchy_asset_in_content_browser](img/skeleton_hierarchy_asset_in_content_browser.png)
 
-    ![18_alpha_0.2_vp](img/18_alpha_0.2_vp.jpg)
+####Create the Skeleton Hierarchy Retargetable asset.
 
-    * if we set *Alpha* to 0.5, the final rotation is original’s 50%;
-	
-    ![18_alpha_0.5](img/18_alpha_0.5.jpg)
+Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
 
-    ![18_alpha_0.5_vp](img/18_alpha_0.5_vp.jpg)
+![create_skeleton_hierarchy_retargetable](img/create_skeleton_hierarchy_retargetable.png)
 
-    * if we set *Alpha* to 0.8, the final rotation is original’s 80%;
-	
-    ![18_alpha_0.8](img/18_alpha_0.8.jpg)
 
-    ![18_alpha_0.8_vp](img/18_alpha_0.8_vp.jpg)
+Select the Skeleton Hierarchy asset in the popup .
 
-* Besides debugging the *Look At Axis*, we can draw original and modified UpAxis and the coordinate system of modified bone if we enable the corresponding debug properties.
+![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
 
-    * Note: We’d better not enable too many debug draws, otherwise it will be too messy to get useful information.
 
-![19_all_enabled_debug](img/19_all_enabled_debug.jpg)
-	
-![19_all_enabled_debug_vp](img/19_all_enabled_debug_vp.jpg)
+The following is the created Skeleton Hierarchy Retargetable asset:
 
-* We need to add two other nodes for **Spine01** and **Spine03** according to the method mentioned above. Pay attention, we need to apply control to the **Spine01** first, then to the **Spine03**, final to the **Head**.
+![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
 
-![20_final_anim_bp](img/20_final_anim_bp.jpg)
 
-* This is the final result.
+Double-click an asset to open the corresponding editor:
 
-![20_final_vp.jpg](img/20_final_vp.jpg)
+![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
 
-* What does the property *Approximate Clamp* mean?
 
-    This property only works when we use the *Look Up Axis* and not to lock it. In this mode, clamping the rotation accurately will perform a lot of calculation, so we provide *Approximate Clamp* option which can achieve considerable accurate in most cases and recommend you use it.
+Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
 
-##Supplement
+![skeleton_retarget_base_pose_edit_before](img/skeleton_retarget_base_pose_edit_before.png)
+Before
 
-* <a name="non_uniform_clamping"></a>Supporting Non-Uniform Clamping (2021-08-31 v1.2)
+![skeleton_retarget_base_pose_edit_after](img/skeleton_retarget_base_pose_edit_after.png)
+After
 
-    This feature allow different clamping ranges in pitch and yaw directions. To achieve this, a property named *Clamp Ratio* is added. The clamping cone's bottom surface is an ellipse instead of a circle when this property is not equal to 1. It allows non-uniform clamping in different directions.
-	
-    ***Special thanks to Levitikon217 for giving this valuable advice and explaining in detail why this feature is needed.***
-	
-![21_non_uniform_clamping.jpg](img/21_non_uniform_clamping.jpg)
+
+In the *Edit Retarget Base Pose* panel:
+
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
+
+![skeleton_retarget_use_current_pose](img/use_current_pose.png)
+
+
+In the *Joint Chain Settings* panel, it is possible to define the *Joint Chain* and the *Retargetable Root Bone* for the current *Retargetable*.
+
+![skeleton_retarget_bone_chain_edit](img/skeleton_retarget_bone_chain_edit.png)
+
+####Create Motion to AnimSeq Retargeter
+
+
+By selecting Motion to AnimSeq from the Swift Motion Toolkit category in the Content Browser context menu The Retargeter option creates corresponding assets.
+
+![create_motion_2_seq_retargetable](img/create_motion_2_seq_retargetable.png)
+
+
+In the pop-up window select the Motion Hierarchy Retargetable asset for the source and the Skeleton Hierarchy Retargetable asset for the target respectively.
+
+![create_create_motion_2_seq_retargetable_pick_src_target](img/create_create_motion_2_seq_retargetable_pick_src_target.png)
+
+
+The Motion to AnimSeq created is as follows Retargeter assets:
+
+![motion_2_seq_retargeter_in_content_browser](img/motion_2_seq_retargeter_in_content_browseer.png)
+
+
+Double-click an asset to open the corresponding editor:
+
+![open_motion_2_seq_retargeter_editor](img/open_motion_2_seq_retargeter_editor.png)
+
+
+In the *Chain Mapping* panel, we can set the mapping relationship between the retarget source and target *Joint Chains*.
+
+![source_and_target_chain_mapping](img/source_and_target_chain_mapping.png)
+
+
+Then double-click on the asset in the *Motion Data Browser* to preview the retargeting result in the viewport.
+
+![motion_retargeter_browser](img/motion_retargeter_browser.png)
+
+![mocap_to_ue_mesh_preview](img/mocap_to_ue_mesh_preview.gif)
+
+###Retarget between AnimSequence assets
+
+for using an * AnimSequence * asset as a retarget source is similar to using a Mocap asset as a retarget source. We first need to create a *Hierarchy* asset and a *Hierarchy Retargetable* asset based on the *Skeletal Mesh* asset of the retarget source. Then use the * Retargeter * asset to create a mapping between the two for retarget. Converted assets can be used out of the box in *Unreal Engine* because our tool does proper handling of root joints and IK joints.
+
+####Create the Skeleton Hierarchy asset for the source animation.
+
+Via selecting the Skeleton Hierarchy option in the Swift Motion Toolkit category of the Content Browser context menu.
+
+![create_mixamo_skeleton_hierarchy](img/create_mixamo_skeleton_hierarchy.png)
+
+In the popup select the Skeletal Mesh asset as the retarget source.
+
+![create_mixamo_skeleton_hierarchy_pick_mesh](img/create_mixamo_skeleton_hierarchy_pick_mesh.png)
+
+The Skeleton Hierarchy asset created is as follows :
+
+![mixamo_skeleton_hierarchy_asset_in_content_browser](img/mixamo_skeleton_hierarchy_asset_in_content_browser.png)
+
+
+####Create the Skeleton Hierarchy Retargetable asset for the source animation.
+
+Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
+
+![create_mixamo_skeleton_hierarchy_retargetable](img/create_mixamo_skeleton_hierarchy_retargetable.png)
+
+Select the Skeleton Hierarchy asset in the popup .
+
+![create_mixamo_skeleton_hierarchy_retargetable_pick_mesh](img/create_mixamo_skeleton_hierarchy_retargetable_pick_mesh.png)
+
+The following is the created Skeleton Hierarchy Retargetable asset:
+
+![mixamo_skeleton_hierarchy_retargetable_in_content_browser](img/mixamo_skeleton_hierarchy_retargetable_in_content_browseer.png)
+
+Double-click an asset to open the corresponding editor:
+
+![open_smixamo_keleton_hierarchy_retargegtable_editor](img/open_mixamo_skeleton_hierarchy_retargegtable_editor.png)
+
+
+
+In the *Edit Retarget Base Pose* panel:
+
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
+
+![skeleton_retarget_use_current_pose](img/use_current_pose.png)
+
+Because there is already a fully consistent Joint Chains definition in other *Retargetable*, we can copy it from there. (Even if it is not consistent, it can be copied. Our tool will ignore the Joint Chains that do not match the *Hierarchy* correctly.)
+
+![copy_motion_bone_chain_mapping](img/copy_motion_bone_chain_mapping.png)
+Copy
+
+![paste_motion_bone_chain_mapping](img/paste_motion_bone_chain_mapping.png)
+Paste
+
+
+Set retarget root bone
+
+![set_mixamo_retargetable_root_bone](img/set_mixamo_retargetable_root_bone.png)
+
+####Create the Skeleton Hierarchy asset for the target animation
+(Reuse previously created)
+####Create the Skeleton Hierarchy Retargetable asset for target animation
+
+Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
+
+![create_man2_skeleton_hierarchcy_retargetable](img/create_man2_skeleton_hierarchcy_retargetable.png)
+
+Select the Skeleton Hierarchy asset in the popup .
+
+![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
+
+The following is the created Skeleton Hierarchy Retargetable asset:
+
+![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
+
+Double-click an asset to open the corresponding editor:
+
+![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
+
+Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
+
+
+![skeleton_retarget_base_pose_edit_before](img/skeleton_retarget_base_pose_edit_before.png)
+Before
+
+![man3_skeleton_hierarchy_retargetable_after1_right](img/man3_skeleton_hierarchy_retargetable_after1_right.png)
+After
+
+![man3_skeleton_hierarchy_retargetable_befor_top](img/man3_skeleton_hierarchy_retargetable_befor_top.png)
+Before
+
+![man3_skeleton_hierarchy_retargetable_after_top](img/man3_skeleton_hierarchy_retargetable_after_top.png)
+After
+
+
+In the *Edit Retarget Base Pose* panel:
+
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
+
+![skeleton_retarget_use_current_pose](img/use_current_pose.png)
+
+Because there is already a fully consistent Joint Chains definition in other *Retargetable*, we can copy it from there. (Even if it is not consistent, it can be copied. Our tool will ignore the Joint Chains that do not match the *Hierarchy* correctly.)
+
+![copy_man_skeleton_bone_chain_mapping](img/copy_man_skeleton_bone_chain_mapping.png)
+Copy
+
+![paste_man_skeleton_bone_chain_mapping](img/paste_man_skeleton_bone_chain_mapping.png)
+After
+
+Set retarget root bone
+
+![set_man_skeleton_hierarchy_retargetable_root_bone](img/set_man_skeleton_hierarchy_retargetable_root_bone.png)
+
+####Create Motion to AnimSeq Retargeter
+
+Via selecting Motion to AnimSeq from the Swift Motion Toolkit category in the Content Browser context menu The Retargeter option creates corresponding assets.
+
+![create_mixamo_motion_2_seq_retargeter](img/create_mixamo_motion_2_seq_retargeter.png)
+
+In the pop-up window select the Motion Hierarchy Retargetable asset for the source and the Skeleton Hierarchy Retargetable asset for the target respectively.
+
+![create_create_mixamo_motion_2_seq_retargeter_pick_src_target](img/create_create_mixamo_motion_2_seq_retargeter_pick_src_target.png)
+
+The Motion to AnimSeq created is as follows Retargeter assets:
+
+![mixamo_motion_2_seq_retargeter_in_content_browser](img/mixamo_motion_2_seq_retargeter_in_content_browseer.png)
+
+Double-click an asset to open the corresponding editor:
+
+![open_mixamo_motion_2_seq_retargeter_editor](img/open_mixamo_motion_2_seq_retargeter_editor.png)
+
+
+In the *Chain Mapping* panel, we can set the mapping relationship between the source and target *Joint Chains*.
+
+![source_and_target_chain_mapping](img/source_and_target_chain_mapping.png)
+
+
+Then double-click on the asset in the *Motion Data Browser* to preview the retargeting result in the viewport.
+
+![mixamo_motion_retargeter_browser](img/mixamo_motion_retargeter_browser.png)
+
+![mixamo_to_ue_mesh_preview](img/mixamo_to_ue_mesh_preview.gif)
+
+
+
+

@@ -2,18 +2,18 @@
 
 ##Overview
 
-*Swift Motion Toolkit* 是一套集成Mocap资源导入、动画重定向和 Root Motion 处理等功能于一体的角色动画工具。同时它也支持不同角色 AnimSequence 动画资产之间的重定向。
+*Swift Motion Toolkit* 是一套集成 mo-cap 资源导入、动画重定向和 Root Motion 处理等功能于一体的角色动画工具。同时它也支持不同角色 AnimSequence 动画资产之间的重定向等等。
 
 ##Features
 
-* 导入BVH格式的Mocap动画，并提供预览。
-* 重定向Mocap动画为AnimSequence资产。
+* 导入 BVH 格式的 mo-cap 动画，并提供预览。
+* 重定向 mo-cap 动画为AnimSequence资产。
 * 重定向AnimSequence资产。
-* 支持以IK的方式更精确的复原末端关节的位置。
+* 支持以IK的方式更精确的调整末端关节的位置。
 * 支持将动画同步至IK骨骼。
 * 支持将垂直或（和）水平方向的Root位移烘焙至动画。
-* 支持仅保留水平方向的根旋转。
-* 支持将RootMotion转为原地动画。
+* 支持有选择性的保留根旋转。
+* 支持将带根运动的动画转为原地动画。
 
 ##Showcase
 
@@ -22,31 +22,33 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jM3J4OttxXs" frameborder="0" allowfullscreen></iframe>
 
 
-##相关资产
-* Motion Hierarchy
 
-    *Motion Hierarchy* 资产记录了Mocap动画使用的的骨架拓扑结构并包含了一个重定向基础姿势。
+##相关资产
+###Motion Hierarchy
+
+*Motion Hierarchy* 资产记录了 mo-cap 动画使用的的骨架层次结构并包含了一个重定向基础姿势。
     
 
-* Motion Data
+###Motion Data
 
-    *Motion Data* 记录了 Mocap 动画的一系列与时间相关的姿势数据。并持有对一个 Motion Hierarchy 资产的引用。该 Motion Hierarchy 资产可以解释 Motion Data 中每个姿势的拓扑结构。
+*Motion Data* 记录了  mo-cap  动画的一系列与时间相关的姿势数据。并持有对一个 Motion Hierarchy 资产的引用。该 Motion Hierarchy 资产可以解释 Motion Data 中每个姿势的拓扑结构。
 
-* Motion Hierarchy Retargetable
+###Motion Hierarchy Retargetable
 
-    *Motion Hierarchy Retargetable* 持有一个 *Motion Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Motion Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Motion Hierarchy* 中的重定向基础姿势）。
+*Motion Hierarchy Retargetable* 持有一个 *Motion Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Motion Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Motion Hierarchy* 中的重定向基础姿势）。
 
-* Skeleton Hierarchy
+###Skeleton Hierarchy
 
-    *Skeleton Hierarchy* 持有一个 *USkeleton* 资产的引用。 该资产允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy* 中定义重定向基础姿势，则在重定向时将使用 *USkeleton*  中的重定向基础姿势）。
+*Skeleton Hierarchy* 持有一个 *USkeleton* 资产的引用。 该资产允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy* 中定义重定向基础姿势，则在重定向时将使用 *USkeleton*  中的重定向基础姿势）。
 
-* Skeleton Hierarchy Retargetable
+###Skeleton Hierarchy Retargetable
 
-    *Skeleton Hierarchy Retargetable* 持有一个 *Skeleton Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Skeleton Hierarchy* 中的重定向基础姿势）。
+*Skeleton Hierarchy Retargetable* 持有一个 *Skeleton Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Skeleton Hierarchy* 中的重定向基础姿势）。
 
-* Motion to AnimSeq Retargeter
+###Motion to AnimSeq Retargeter
 
-    *Motion to AnimSeq Retargeter* 持有一对 *Hierarchy Retargetable* 作为重定向的源和目标。 该资产允许用户对源和目标的骨骼链映射表，和FK、IK以及Root Motion进行配置。并提供重定向结果的预览和导出。
+*Motion to AnimSeq Retargeter* 持有一对 *Hierarchy Retargetable* 作为重定向的源和目标。 该资产允许用户对源和目标的骨骼链映射表，和FK、IK以及Root Motion进行配置。并提供重定向结果的预览和导出。
+
 
 ##编辑器
 
@@ -65,11 +67,17 @@
 
 Property | Description
 ------------ | -------------
-Left Joint Identification | 关节名称中左边的标识 
-Left Joint Display Color | 左边关节显示的颜色
-Right Joint Identification | 关节名称中右边的标识
+Left Joint Identification List| 左边关节标识列表 
+Flag| 关节名称中的标识 
+Type| 标识类型：1. 前缀  2. 后缀  3. 包含 
+Left Joint Display Color | 右边关节显示的颜色
+Right Joint Identification List| 右边关节标识列表 
+Flag| 关节名称中的标识 
+Type| 标识类型：1. 前缀  2. 后缀  3. 包含 
 Right Joint Display Color | 右边关节显示的颜色
 Other Joint Display Color | 其它关节显示的颜色
+
+(注： 标识列表中允许有多个元素。如果关节名满足其中任一条件则判为“真”。)
 
 ####3. Viewport Tab
 
@@ -175,6 +183,49 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 ###Skeleton Hierarchy Editor
 
     支持对 Skeleton Hierarchy 的预览和编辑。
+![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_editor_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+####2. Asset Details
+
+![motion_data_editor_overview](img/motion_date_editor_asset_details.png)
+
+Property | Description
+------------ | -------------
+Left Joint Identification List| 左边关节标识列表 
+Flag| 关节名称中的标识 
+Type| 标识类型：1. 前缀  2. 后缀  3. 包含 
+Left Joint Display Color | 右边关节显示的颜色
+Right Joint Identification List| 右边关节标识列表 
+Flag| 关节名称中的标识 
+Type| 标识类型：1. 前缀  2. 后缀  3. 包含 
+Right Joint Display Color | 右边关节显示的颜色
+Other Joint Display Color | 其它关节显示的颜色
+
+(注： 标识列表中允许有多个元素。如果关节名满足其中任一条件则判为“真”。)
+
+####3. Viewport Tab
+
+![skeleton_hierarchy_viewport_details_tab](img/skeleton_hierarchy_viewport_details_tab.png)
+
+####4. Details Tab
+
+![skeleton_hierarchy_details](img/skeleton_hierarchy_details.png)
+
+####5. Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+Control | Description
+------------ | -------------
+Use Current Pose | 将视口中的姿势写入 *Retarget Base Pose* 
+Restore to Base Pose | 将 *Retarget Base Pose* 还原至视口
+Reset Pose | 将参考姿势写入 *Retarget Base Pose* 
+
+
 
 ###Skeleton Hierarchy Retargetable Editor
 
@@ -182,21 +233,140 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_retargetable_editor_overview.png)
 
 
+####1. Hierarchy Tree Tab
 
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+
+
+####2. Asset Details Tab
+
+![skeleton_hierarchy_retargetable_asset_details_tab](img/skeleton_hierarchy_retargetable_asset_details_tab.png)
+
+
+####3. IK Settings Tab
+
+![skeleton_hierarchy_retargetable_ik_settings_tab](img/skeleton_hierarchy_retargetable_ik_settings_tab.png)
+
+Control | Control | Description
+------------ | ------------ | -------------
+1 | Add New Solver | 增加新的求解器 
+2 | check box | 启用/禁用求解器
+3 | 垃圾桶图标按钮 | 删除对应求解器 
+
+(注： 选中任一求解器，在 Details 标签页中将显示它的配置界面。)
+
+
+####4. Viewport Tab
+
+![skeleton_hierarchy_retargetable_viewport_tab](img/skeleton_hierarchy_retargetable_viewport_tab.png)
+
+####5. Details Tab
+
+![skeleton_hierarchy_retargetable_details](img/skeleton_hierarchy_retargetable_details.png)
+
+Property | Description
+------------ | -------------
+Use Pole Vector| 是否使用极向量 
+Pole Vector| 极向量 
+Target Alpha| 目标应用程度 
+Target Alpha| 目标容差量
+Tip Bone Keep Local Rot| 末端节点在应用了IK后是否保持Local空间的旋转，还是保持应用IK前Global空间的旋转
+Joint Chain Name| 骨骼链名称 
+
+####6. Edit Retarget Base Pose Tab
+
+![edit_retarget_base_pose](img/edit_retarget_base_pose.png)
+
+
+Control | Description
+------------ | -------------
+Use Current Pose | 将视口中的姿势写入 *Retarget Base Pose* 
+Restore to Base Pose | 将 *Retarget Base Pose* 还原至视口
+Reset Pose | 将参考姿势写入 *Retarget Base Pose* 
+
+
+####7. Retarget Chains Tab
+
+![skeleton_hierarchy_retargetable_chain_settings](img/skeleton_hierarchy_retargetable_chain_settings.png)
+
+允许复制黏贴
+
+![retarget_chain_copy_paste.gif](img/retarget_chain_copy_paste.gif)
 
 
 ###Motion to AnimSeq Retargeter Editor
 
-    支持对 Motion to AnimSeq Retargeter 的预览和编辑。
+    支持对源和目标间的重定向设置和对结果的预览。
 ![motion_to_animseq_retargeter_editor_overview](img/motion_to_animseq_retargeter_editor_overview.png)
+
+####1. Hierarchy Tree Tab
+
+![skeleton_hierarchy_tree_tab](img/skeleton_hierarchy_tree_tab.png)
+
+####2. Asset Details Tab
+
+![motion_to_animseq_retargeter_asset_details_tab](img/motion_to_animseq_retargeter_asset_details_tab.png)
+
+Property | Description
+------------ | -------------
+Source| 源 Retargetable 
+Target| 目标 Retargetable 
+Horizontal Root Offset Scale| 水平方向Root偏移缩放 
+Verticle Root Offset Scale| 垂直方向Root偏移缩放 
+Convert Motion To Root Bone| 将运动设置到根骨骼
+Bake Root Rotation in Animation| 将根节点的旋转烘焙至动画
+Keep Root Rotation Around Up Only| 保持Root仅围绕向上方向的的旋转
+Bake Root Verticle Translation in Animation| 将根节点的垂直位移烘焙至动画 
+Bake Horizontal Translation in Animation| 将根节点的水平位移烘焙至动画 
+Convert to In Place Animation| 是否转为原地动画 
+IKCorrection Enalbe| 是否开启IK 
+
+####3. Source Viewport Tab & Target_Viewport Tab
+
+![motion_to_animseq_retargeter_src_target_viewport_tab](img/motion_to_animseq_retargeter_src_target_viewport_tab.gif)
+
+####4. Player Controller Tab
+
+![player_controller_tab](img/player_controller_tab.png)
+
+通过滚轮可以进行缩放
+![motion_data_player_controller_zoom](img/motion_data_player_controller_zoom.gif)
+
+右键拖拽可以左右平移时间轴
+![motion_data_player_controller_pan](img/motion_data_player_controller_pan.gif)
+
+####5. Details Tab
+
+![motion_to_animseq_retargeter_details](img/motion_to_animseq_retargeter_details.png)
+
+Property | Description
+------------ | -------------
+Source Chain| 源骨骼链 
+Target Chain| 目标骨骼链 
+Rotation Mode| 选择在源与目标链间建立映射关系的模式
+
+####6. Motion Data Browser Tab
+
+![motion_to_animseq_retargeter_motion_data_browser](img/motion_to_animseq_retargeter_motion_data_browser.png)
+
+####7. Chain Mapping Tab
+
+![motion_to_animseq_chain_mapping](img/motion_to_animseq_chain_mapping.png)
+
+Control | Description
+------------ | -------------
+Auto-Map Chains | 尝试按名称自动配对。
+Source Chain列中的下拉选单 | 手动选择源关节链
+
 
 ##Quick Start
 ####开启插件
 
-###Mocap 动画重定向至 AnimSequence资产
+### mo-cap  动画重定向至 AnimSequence资产
 ####导入动作捕捉资源。
 
-将 bvh 格式的 Mocap 资源文件拖拽至 Unreal Engine 的 Content Browser 中。
+将 bvh 格式的  mo-cap  资源文件拖拽至 Unreal Engine 的 Content Browser 中。
 
 ![lafan_bvh_files_in_explorer](img/lafan_bvh_files_in_explorer.png)
 
@@ -341,7 +511,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 ###AnimSequence资产间的重定向
 
-将 *AnimSequence* 资产作为重定向源与将 Mocap 资产作为重定向源的工作流程是类似的。我们首先需要基于重定向源的 *Skeletal Mesh* 资产创建 *Hierarchy* 资产和 *Hierarchy Retargetable* 资产。然后通过 *Retargeter* 资产为两者间建立映射关系进行重定向。因为我们的工具可以对根关节和IK关节进行合适的处理，所以转换后的资产可以在 *Unreal Engine* 中开箱即用。
+将 *AnimSequence* 资产作为重定向源与将  mo-cap  资产作为重定向源的工作流程是类似的。我们首先需要基于重定向源的 *Skeletal Mesh* 资产创建 *Hierarchy* 资产和 *Hierarchy Retargetable* 资产。然后通过 *Retargeter* 资产为两者间建立映射关系进行重定向。因为我们的工具可以对根关节和IK关节进行合适的处理，所以转换后的资产可以在 *Unreal Engine* 中开箱即用。
 
 ####创建源动画的 Skeleton Hierarchy 资产。
 

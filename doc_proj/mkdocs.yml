@@ -2,6 +2,6 @@ site_name: Swift Motion Toolkit Docs
 site_url: https://kontiki.info/swift_motion_toolkit/
 
 nav:
-    - Home: index_cn.md
+    - Home: index.md
 
 theme: readthedocs
