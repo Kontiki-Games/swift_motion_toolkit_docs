@@ -25,28 +25,28 @@
 
 ##相关资产
 ###Motion Hierarchy
-
+<span id="motion-hierarchy"></span>
 *Motion Hierarchy* 资产记录了 mo-cap 动画使用的的骨架层次结构并包含了一个重定向基础姿势。
-    
+
 
 ###Motion Data
-
+<span id="motion-data"></span>
 *Motion Data* 记录了  mo-cap  动画的一系列与时间相关的姿势数据。并持有对一个 Motion Hierarchy 资产的引用。该 Motion Hierarchy 资产可以解释 Motion Data 中每个姿势的拓扑结构。
 
 ###Motion Hierarchy Retargetable
-
+<span id="motion-skeleton-hierarchy"></span>
 *Motion Hierarchy Retargetable* 持有一个 *Motion Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Motion Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Motion Hierarchy* 中的重定向基础姿势）。
 
 ###Skeleton Hierarchy
-
+<span id="skeleton-hierarchy"></span>
 *Skeleton Hierarchy* 持有一个 *USkeleton* 资产的引用。 该资产允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy* 中定义重定向基础姿势，则在重定向时将使用 *USkeleton*  中的重定向基础姿势）。
 
 ###Skeleton Hierarchy Retargetable
-
+<span id="skeleton-hierarchy-retargetable"></span>
 *Skeleton Hierarchy Retargetable* 持有一个 *Skeleton Hierarchy* 资产的引用。 该资产允许用户定义若干条骨骼链用于动作重定向，并且允许用户定义新的重定向基础姿势（如果不在 *Skeleton Hierarchy Retargetable* 中定义重定向基础姿势，则在重定向时将使用 *Skeleton Hierarchy* 中的重定向基础姿势）。
 
 ###Motion to AnimSeq Retargeter
-
+<span id="motion-to-animseq-retargeter"></span>
 *Motion to AnimSeq Retargeter* 持有一对 *Hierarchy Retargetable* 作为重定向的源和目标。 该资产允许用户对源和目标的骨骼链映射表，和FK、IK以及Root Motion进行配置。并提供重定向结果的预览和导出。
 
 
@@ -54,6 +54,7 @@
 
 
 ###Motion Hierarchy Editor
+<span id="motion-hierarchy-editor"></span>
 支持对 Motion Hierarchy 的预览和编辑。
 ![motion_hierarchy_editor_overview](img/motion_hierarchy_editor_overview.png)
 
@@ -100,7 +101,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 
 ###Motion Data Editor
-
+<span id="motion-data-editor"></span>
     支持对 Motion Data 的预览。
     
 ![motion_data_editor_overview](img/motion_data_editor_overview.png)
@@ -139,7 +140,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 
 ###Motion Hierarchy Retargetable Editor
-
+<span id="motion-hierarchy-retargetable-editor"></span>
     支持对 Motion Hierarchy Retargetable 的预览和编辑。
     
 ![motion_hierarchy_retargetable_overview](img/motion_hierarchy_retargetable_overview.png)
@@ -181,7 +182,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 
 ###Skeleton Hierarchy Editor
-
+<span id="skeleton-hierarchy-editor"></span>
     支持对 Skeleton Hierarchy 的预览和编辑。
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_editor_overview.png)
 
@@ -228,7 +229,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 
 ###Skeleton Hierarchy Retargetable Editor
-
+<span id="skeleton-hierarchy-retargetable-editor"></span>
     支持对 Skeleton Hierarchy Retargetable 的预览和编辑。
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_retargetable_editor_overview.png)
 
@@ -296,7 +297,7 @@ Reset Pose | 将参考姿势写入 *Retarget Base Pose*
 
 
 ###Motion to AnimSeq Retargeter Editor
-
+<span id="motion-to-animseq-retargeter-editor"></span>
     支持对源和目标间的重定向设置和对结果的预览。
 ![motion_to_animseq_retargeter_editor_overview](img/motion_to_animseq_retargeter_editor_overview.png)
 
@@ -361,7 +362,20 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 
 ##Quick Start
+
+在这份 quick start guide 中我们将向您展示，如何将存储为 bvh 格式的 mo-cap 文件导入 Unreal Engine Editor，并将其重定向为已有角色的骨骼动画。 同时也向您展示如何在两个骨骼层级结构不同的角色间进行动画的转换，例如将 mixamo.com 网站上下载的动画重定向至标准的 Unreal Engine 蒙皮角色上。 更详细的使用请参考视频教程
+[视频教程](#video-tutorials)
+
 ####开启插件
+下载并确保在编辑器中开启插件。
+
+
+![open_plugins_panel](img/open_plugins_panel_.png)
+
+
+
+![swift_motion_toolkit_in_plugins_panel](img/swift_motion_toolkit_in_plugins_panel.png)
+
 
 ### mo-cap  动画重定向至 AnimSequence资产
 ####导入动作捕捉资源。
@@ -378,6 +392,28 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 ![mocap_related_assets](img/mocap_related_assets.png)
 
+其中（1）是 [Motion Data](#motion-data) , (2) 是 [Motion Hierarchy](#motion-hierarchy)
+
+可以双击资产，分别在 [Motion Data Editor](#motion-data-editor) 和 [Motion Hierarchy Editor](#motion-hierarchy-editor) 中打开查看。
+
+
+####将 Motion Hierarchy 资产中的 Base Retarget Pose 调整为 TPose。
+
+![retarget_base_pose_edit_before](img/retarget_base_pose_edit_before.png)
+
+调整前
+
+![retarget_base_pose_edit_after](img/retarget_base_pose_edit_after.png)
+
+调整后
+
+在 *Edit Retarget Base Pose* 面板中:
+
+* 点击 *Use Current Pose* 按钮可以将视口中的姿势设置为 *Retargetable* 资产所使用的 *Retarget Base Pose*.
+* 点击 *Restore to Base Pose* 按钮可以将视口中的姿势还原为 *Retarget Base Pose*.
+* 点击 *Reset Pose* 按钮可以将视口中的姿势还原为当前 *Retargetable* 依赖的 *Hierarchy* 资产所使用的 *Retarget Base Pose*.
+
+
 ####创建 Motion Hierarchy Retargetable 资产。
 
 通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Motion Hierarchy Retargetable 选项创建对应资产。
@@ -388,29 +424,12 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 ![create_motion_hierarchy_retargetable_asset_pick_hierarchy](img/create_motion_hierarchy_retargetable_asset_pick_hierarchy.png)
 
-如下为创建的 Motion Hierarchy Retargetable 资产：
+如下为创建的 [Motion Hierarchy Retargetable](#motion-hierarchy-retargetable) 资产：
 
 ![motion_hierarchy_retargetable_in_content_browser](img/motion_hierarchy_retargetable_in_content_browser.png)
 
 双击资产可以打开对应编辑器：
 
-![open_motion_hierarchy_retargetable_editor](img/open_motion_hierarchy_retargetable_editor.png)
-
-在视口中编辑 *Retarget Base Pose* (建议将其调整为 T Pose)。
-
-![retarget_base_pose_edit_before](img/retarget_base_pose_edit_before.png)
-调整前
-
-![retarget_base_pose_edit_after](img/retarget_base_pose_edit_after.png)
-调整后
-
-在 *Edit Retarget Base Pose* 面板中:
-
-* 点击 *Use Current Pose* 按钮可以将视口中的姿势设置为 *Retargetable* 资产所使用的 *Retarget Base Pose*.
-* 点击 *Restore to Base Pose* 按钮可以将视口中的姿势还原为 *Retarget Base Pose*.
-* 点击 *Reset Pose* 按钮可以将视口中的姿势还原为当前 *Retargetable* 依赖的 *Hierarchy* 资产所使用的 *Retarget Base Pose*.
-
-![use_current_pose](img/use_current_pose.png)
 
 在 *Joint Chain Settings* 面板中，可以为当前 *Retargetable* 定义 *Joint Chain* 和 *重定向根骨骼*.
 
@@ -431,26 +450,10 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 ![skeleton_hierarchy_asset_in_content_browser](img/skeleton_hierarchy_asset_in_content_browser.png)
 
-####创建 Skeleton Hierarchy Retargetable 资产。
-
-通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Skeleton Hierarchy Retargetable 选项创建对应资产。
-
-![create_skeleton_hierarchy_retargetable](img/create_skeleton_hierarchy_retargetable.png)
-
-
-在弹出窗口中选择作为重定向目标的 Skeleton Hierarchy 资产。
-
-![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
-
-
-如下为创建的 Skeleton Hierarchy Retargetable 资产：
-
-![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
-
 
 双击资产可以打开对应编辑器：
 
-![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
+![open_skeleton_hierarchy_editor](img/open_skeleton_hierarchy_editor.png)
 
 
 在视口中编辑 *Retarget Base Pose* (建议将其调整为 T Pose)。
@@ -471,6 +474,29 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 ![skeleton_retarget_use_current_pose](img/use_current_pose.png)
 
 
+
+####创建 Skeleton Hierarchy Retargetable 资产。
+
+通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Skeleton Hierarchy Retargetable 选项创建对应资产。
+
+![create_skeleton_hierarchy_retargetable](img/create_skeleton_hierarchy_retargetable.png)
+
+
+在弹出窗口中选择作为重定向目标的 Skeleton Hierarchy 资产。
+
+![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
+
+
+如下为创建的 [Skeleton Hierarchy Retargetable](#skeleton-hierarchy-retargetable)  资产：
+
+![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
+
+
+双击资产可以打开对应编辑器：
+
+![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
+
+
 在 *Joint Chain Settings* 面板中，可以为当前 *Retargetable* 定义 *Joint Chain* 和 *重定向根骨骼*.
 
 ![skeleton_retarget_bone_chain_edit](img/skeleton_retarget_bone_chain_edit.png)
@@ -488,7 +514,7 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 ![create_create_motion_2_seq_retargetable_pick_src_target](img/create_create_motion_2_seq_retargetable_pick_src_target.png)
 
 
-如下为创建的 Motion to AnimSeq Retargeter 资产：
+如下为创建的 [Motion to AnimSeq](#motion-to-animseq-retargeter)  资产：
 
 ![motion_2_seq_retargeter_in_content_browser](img/motion_2_seq_retargeter_in_content_browseer.png)
 
@@ -513,6 +539,8 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 将 *AnimSequence* 资产作为重定向源与将  mo-cap  资产作为重定向源的工作流程是类似的。我们首先需要基于重定向源的 *Skeletal Mesh* 资产创建 *Hierarchy* 资产和 *Hierarchy Retargetable* 资产。然后通过 *Retargeter* 资产为两者间建立映射关系进行重定向。因为我们的工具可以对根关节和IK关节进行合适的处理，所以转换后的资产可以在 *Unreal Engine* 中开箱即用。
 
+####从 mixamo.com 网站下载得源动画
+
 ####创建源动画的 Skeleton Hierarchy 资产。
 
 通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Skeleton Hierarchy 选项创建对应资产。
@@ -526,6 +554,21 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 如下为创建的 Skeleton Hierarchy 资产：
 
 ![mixamo_skeleton_hierarchy_asset_in_content_browser](img/mixamo_skeleton_hierarchy_asset_in_content_browser.png)
+
+
+双击资产可以打开对应编辑器：
+
+![open_smixamo_keleton_hierarchyeditor](img/open_mixamo_skeleton_hierarchyeditor.png)
+
+
+
+在 *Edit Retarget Base Pose* 面板中:
+
+* 点击 *Use Current Pose* 按钮可以将视口中的姿势设置为 *Retargetable* 资产所使用的 *Retarget Base Pose*.
+* 点击*Restore to Base Pose* 按钮可以将视口中的姿势还原为 *Retarget Base Pose*.
+* 点击*Reset Pose* 按钮可以将视口中的姿势还原为当前 *Retargetable* 依赖的 *Hierarchy* 资产所使用的 *Retarget Base Pose*.
+
+![skeleton_retarget_use_current_pose](img/use_current_pose.png)
 
 
 ####创建源动画的 Skeleton Hierarchy Retargetable 资产。
@@ -548,14 +591,6 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 
 
-在 *Edit Retarget Base Pose* 面板中:
-
-* 点击 *Use Current Pose* 按钮可以将视口中的姿势设置为 *Retargetable* 资产所使用的 *Retarget Base Pose*.
-* 点击*Restore to Base Pose* 按钮可以将视口中的姿势还原为 *Retarget Base Pose*.
-* 点击*Reset Pose* 按钮可以将视口中的姿势还原为当前 *Retargetable* 依赖的 *Hierarchy* 资产所使用的 *Retarget Base Pose*.
-
-![skeleton_retarget_use_current_pose](img/use_current_pose.png)
-
 因为其它 *Retargetable* 中已经存在完全一致的 Joint Chains 定义，所以我们可以从哪里拷贝过来.(即便不一致，也可以进行拷贝。我们的工具会忽略不能正确匹配 *Hierarchy* 的 Joint Chains.)
 
 ![copy_motion_bone_chain_mapping](img/copy_motion_bone_chain_mapping.png)
@@ -569,63 +604,9 @@ Source Chain列中的下拉选单 | 手动选择源关节链
 
 ![set_mixamo_retargetable_root_bone](img/set_mixamo_retargetable_root_bone.png)
 
-####创建目标动画的 Skeleton Hierarchy 资产。
-（复用之前创建的）
-####创建目标动画的 Skeleton Hierarchy Retargetable 资产。
-
-通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Skeleton Hierarchy Retargetable 选项创建对应资产。
-
-![create_man2_skeleton_hierarchcy_retargetable](img/create_man2_skeleton_hierarchcy_retargetable.png)
-
-在弹出窗口中选择作为重定向目标的 Skeleton Hierarchy 资产。
-
-![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
-
-如下为创建的 Skeleton Hierarchy Retargetable 资产：
-
-![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
-
-双击资产可以打开对应编辑器：
-
-![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
-
-在视口中编辑 *Retarget Base Pose* (建议将其调整为 T Pose)。
 
 
-![skeleton_retarget_base_pose_edit_before](img/skeleton_retarget_base_pose_edit_before.png)
-调整前
-
-![man3_skeleton_hierarchy_retargetable_after1_right](img/man3_skeleton_hierarchy_retargetable_after1_right.png)
-调整后
-
-![man3_skeleton_hierarchy_retargetable_befor_top](img/man3_skeleton_hierarchy_retargetable_befor_top.png)
-调整前
-
-![man3_skeleton_hierarchy_retargetable_after_top](img/man3_skeleton_hierarchy_retargetable_after_top.png)
-调整后
-
-
-在 *Edit Retarget Base Pose* 面板中:
-
-* 点击 *Use Current Pose* 按钮可以将视口中的姿势设置为 *Retargetable* 资产所使用的 *Retarget Base Pose*.
-* 点击*Restore to Base Pose* 按钮可以将视口中的姿势还原为 *Retarget Base Pose*.
-* 点击*Reset Pose* 按钮可以将视口中的姿势还原为当前 *Retargetable* 依赖的 *Hierarchy* 资产所使用的 *Retarget Base Pose*.
-
-![skeleton_retarget_use_current_pose](img/use_current_pose.png)
-
-因为其它 *Retargetable* 中已经存在完全一致的 Joint Chains 定义，所以我们可以从哪里拷贝过来.(即便不一致，也可以进行拷贝。我们的工具会忽略不能正确匹配 *Hierarchy* 的 Joint Chains.)
-
-![copy_man_skeleton_bone_chain_mapping](img/copy_man_skeleton_bone_chain_mapping.png)
-复制
-
-![paste_man_skeleton_bone_chain_mapping](img/paste_man_skeleton_bone_chain_mapping.png)
-黏贴
-
-设置重定向根骨骼
-
-![set_man_skeleton_hierarchy_retargetable_root_bone](img/set_man_skeleton_hierarchy_retargetable_root_bone.png)
-
-####创建 Motion to AnimSeq Retargeter。
+####创建 Motion to AnimSeq Retargeter（复用之前创建的 Target Skeleton Hierarchy Retargetable）。
 
 通过选择 Content Browser 上下文菜单 Swift Motion Toolkit 分类中 Motion to AnimSeq Retargeter 选项创建对应资产。
 

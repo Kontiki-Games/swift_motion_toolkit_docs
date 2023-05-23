@@ -17,36 +17,77 @@
 
 ##Showcase
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/G_QuKErWYU4" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_p9ttnPKMYI" frameborder="0" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/jM3J4OttxXs" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dRPSrGvM67U" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZWKmjRFj-kE" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TycKnmd63KM" frameborder="0" allowfullscreen></iframe>
 
 
+
+##Vedio Tutorial
+<span id="video-tutorials"></span>
+
+###01 How to import mocap data to Unreal Engine via Swift Motion Toolkit
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OiT2JbPOm5s" frameborder="0" allowfullscreen></iframe>
+
+###02 How to create and set motion hierarchy
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oA1L-Ih0WnE" frameborder="0" allowfullscreen></iframe>
+
+###03 How to adjust retarget base pose for motion hierarchy
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M9h-d7t1A3s" frameborder="0" allowfullscreen></iframe>
+
+###04 How to create skeleton hierarchy and reteragetable assets
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bJhmeuPyD9k" frameborder="0" allowfullscreen></iframe>
+
+###05 How to adjust retarget base pose 4 skeleton hierarchy
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MRFKUsXDwgM" frameborder="0" allowfullscreen></iframe>
+
+###06 How to setup skeletn hierarchy retargetable joint chain
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PZ1GuBCYymU" frameborder="0" allowfullscreen></iframe>
+
+###07 How to create and preview retargeter.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xmt8KIhfWbA" frameborder="0" allowfullscreen></iframe>
+
+###08 How to solve problems via IK
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3eQNZE9eJw" frameborder="0" allowfullscreen></iframe>
+
+###09 How to solve problem result from IK
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XorognIRzGM" frameborder="0" allowfullscreen></iframe>
+
+###10 Retarget mocap to manny
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WbsVyfDHA3M" frameborder="0" allowfullscreen></iframe>
+
+###11 Retarget between AnimSequence assets
+<iframe width="560" height="315" src="https://www.youtube.com/embed/CsU8S36i52Y" frameborder="0" allowfullscreen></iframe>
 
 ##Related assets
 ###Motion Hierarchy
-
+<span id="motion-hierarchy"></span>
 *Motion Hierarchy* asset contains the skeleton hierarchy used in mo-cap animation and a retarget base pose.
     
 
 ###Motion Data
-
+<span id="motion-data"></span>
 *Motion Data* contains a series of pose data related to time in mo-cap animations. And hold a reference to a Motion Hierarchy asset. This Motion Hierarchy asset can explain the hierarchy of each pose in Motion Data. 
 
 ###Motion Hierarchy Retargetable
-
+<span id="motion-skeleton-hierarchy"></span>
 *Motion Hierarchy Retargetable* holds a reference to a *Motion Hierarchy* asset. This asset allows users to define several bone chains for action retarget, and allows users to define new retarget base poses (if the retarget base pose is not defined in *Motion Hierarchy Retargetable*, the retarget base pose in *Motion Hierarchy* will be used). 
 
 ###Skeleton Hierarchy
-
+<span id="skeleton-hierarchy"></span>
 *Skeleton Hierarchy* holds a reference to a *USkeleton* asset. This asset allows users to define a new retarget base pose (if the retarget base pose is not defined in *Skeleton Hierarchy*, the retarget base pose in *USkeleton* will be used). 
 
 ###Skeleton Hierarchy Retargetable
-
+<span id="skeleton-hierarchy-retargetable"></span>
 *Skeleton Hierarchy Retargetable* holds a reference to a Skeleton Hierarchy * asset. This asset allows users to define several bone chains for action retarget, and a new retarget base pose (if the retarget base pose is not defined in *Skeleton Hierarchy Retargetable*, the retarget base pose in *Skeleton Hierarchy* will be used). 
 
 ###Motion to AnimSeq Retargeter
-
+<span id="motion-to-animseq-retargeter"></span>
 *Motion to AnimSeq Retargeter* holds a pair of *Hierarchy Retargetable* as the source and target for retarget. This asset allows users to configure the bone chain mapping tables of the source and target, as well as FK, IK, and Root Motion. And provide a preview and export of the retarget results. 
 
 
@@ -54,6 +95,7 @@
 
 
 ###Motion Hierarchy Editor
+<span id="motion-hierarchy-editor"></span>
 Support preview and editing of Motion Hierarchy. 
 
 ![motion_hierarchy_editor_overview](img/motion_hierarchy_editor_overview.png)
@@ -101,7 +143,7 @@ Reset Pose | Write the reference pose to *Target Base Pose*
 
 
 ###Motion Data Editor
-
+<span id="motion-data-editor"></span>
     Support preview of Motion Data.
     
 ![motion_data_editor_overview](img/motion_data_editor_overview.png)
@@ -140,7 +182,7 @@ Right click drag to pan the timeline left and right
 
 
 ###Motion Hierarchy Retargetable Editor
-
+<span id="motion-hierarchy-retargetable-editor"></span>
     Support preview and editing of Motion Hierarchy Retargetable. 
     
 ![motion_hierarchy_retargetable_overview](img/motion_hierarchy_retargetable_overview.png)
@@ -182,7 +224,7 @@ Allow copy and paste
 
 
 ###Skeleton Hierarchy Editor
-
+<span id="skeleton-hierarchy-editor"></span>
     Supports preview and editing of Skeleton Hierarchy.
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_editor_overview.png)
 
@@ -229,7 +271,7 @@ Reset Pose | Write the reference pose to *Target Base Pose*
 
 
 ###Skeleton Hierarchy Retargetable Editor
-
+<span id="skeleton-hierarchy-retargetable-editor"></span>
     Support for preview and editing of Skeleton Hierarchy Retargetable.
 ![skeleton_hierarchy_retargetable_editor_overview](img/skeleton_hierarchy_retargetable_editor_overview.png)
 
@@ -297,7 +339,7 @@ Allow copy and paste
 
 
 ###Motion to AnimSeq Retargeter Editor
-
+<span id="motion-to-animseq-retargeter-editor"></span>
     Supports retarget settings between source and target and preview of results.
 ![motion_to_animseq_retargeter_editor_overview](img/motion_to_animseq_retargeter_editor_overview.png)
 
@@ -362,7 +404,17 @@ Drop-down menu in the Source Chain column | Manually select the source joint cha
 
 
 ##Quick Start
+
+In this quick start guide we will show you how to import a mo-cap file saved in bvh format into Unreal Engine Editor and retarget it to skeletal animation of an existing character. It also shows how to convert animations between two characters with different bone hierarchies, such as retargeting animations downloaded from the mixamo.com website to standard Unreal Engine skinned characters. For more detailed use, please refer to the [Video Tutorials](#video-tutorials)
+
 ####Enable plugin
+Download and make sure to enable the plugin in the editor.
+
+![open_plugins_panel](img/open_plugins_panel_.png)
+
+
+![swift_motion_toolkit_in_plugins_panel](img/swift_motion_toolkit_in_plugins_panel.png)
+
 
 ### Retarget mo-cap to AnimSequence asset
 ####Import motion capture resources
@@ -379,6 +431,28 @@ If you choose to import both, the result is shown in the image below:
 
 ![mocap_related_assets](img/mocap_related_assets.png)
 
+(1) is [Motion Data](#motion-data), (2) is [Motion Hierarchy](#motion-hierarchy)
+
+Assets can be double-clicked to open them for viewing in the [Motion Data Editor](#motion-data-editor) and [Motion Hierarchy Editor](#motion-hierarchy-editor) respectively.
+
+
+####Adjust the Base Retarget Pose in the Motion Hierarchy asset to TPose
+![retarget_base_pose_edit_before](img/retarget_base_pose_edit_before.png)
+
+Before
+
+![retarget_base_pose_edit_after](img/retarget_base_pose_edit_after.png)
+
+After
+
+
+In the *Edit Retarget Base Pose* panel:
+
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
+
+
 ####Create the Motion Hierarchy Retargetable asset
 
 by selecting the Motion Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
@@ -389,31 +463,14 @@ In the popup select the Motion Hierarchy asset as the retarget source.
 
 ![create_motion_hierarchy_retargetable_asset_pick_hierarchy](img/create_motion_hierarchy_retargetable_asset_pick_hierarchy.png)
 
-The following is the Motion Hierarchy Retargetable asset created:
+The following is the [Motion Hierarchy Retargetable](#motion-hierarchy-retargetable) asset created:
 
 ![motion_hierarchy_retargetable_in_content_browser](img/motion_hierarchy_retargetable_in_content_browser.png)
 
 Double-click an asset to open the corresponding editor:
 
-![open_motion_hierarchy_retargetable_editor](img/open_motion_hierarchy_retargetable_editor.png)
 
-Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
-
-![retarget_base_pose_edit_before](img/retarget_base_pose_edit_before.png)
-Before
-
-![retarget_base_pose_edit_after](img/retarget_base_pose_edit_after.png)
-After
-
-In the *Edit Retarget Base Pose* panel:
-
-* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
-* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
-* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
-
-![use_current_pose](img/use_current_pose.png)
-
-In the *Joint Chain Settings* panel, it is possible to define the *Joint Chain* and the *Retargetable Root Bone* for the current *Retargetable*.
+In the *Joint Chain Settings* panel, the *Joint Chain* and the *Retargetable Root Bone* for the current *Retargetable* can be defined.
 
 ![motion_bone_chain_edit](img/motion_bone_chain_edit.png)
 
@@ -428,30 +485,14 @@ Select the Skeletal Mesh asset in the popup .
 
 ![create_skeleton_hierarchy_pick_mesh](img/create_skeleton_hierarchy_pick_mesh.png)
 
-The Skeleton Hierarchy asset created is as follows :
+The [Skeleton Hierarchy](#skeleton-hierarchy) asset created is as follows :
 
 ![skeleton_hierarchy_asset_in_content_browser](img/skeleton_hierarchy_asset_in_content_browser.png)
-
-####Create the Skeleton Hierarchy Retargetable asset.
-
-Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
-
-![create_skeleton_hierarchy_retargetable](img/create_skeleton_hierarchy_retargetable.png)
-
-
-Select the Skeleton Hierarchy asset in the popup .
-
-![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
-
-
-The following is the created Skeleton Hierarchy Retargetable asset:
-
-![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
 
 
 Double-click an asset to open the corresponding editor:
 
-![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
+![open_skeleton_hierarchy_editor](img/open_skeleton_hierarchy_editor.png)
 
 
 Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
@@ -472,9 +513,33 @@ In the *Edit Retarget Base Pose* panel:
 ![skeleton_retarget_use_current_pose](img/use_current_pose.png)
 
 
+####Create the Skeleton Hierarchy Retargetable asset.
+
+Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
+
+![create_skeleton_hierarchy_retargetable](img/create_skeleton_hierarchy_retargetable.png)
+
+
+Select the Skeleton Hierarchy asset in the popup .
+
+![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
+
+
+The following is the created [Skeleton Hierarchy Retargetable](#skeleton-hierarchy-retargetable) asset:
+
+![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
+
+
+Double-click an asset to open the corresponding editor:
+
+![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
+
+
 In the *Joint Chain Settings* panel, it is possible to define the *Joint Chain* and the *Retargetable Root Bone* for the current *Retargetable*.
 
 ![skeleton_retarget_bone_chain_edit](img/skeleton_retarget_bone_chain_edit.png)
+
+
 
 ####Create Motion to AnimSeq Retargeter
 
@@ -489,7 +554,7 @@ In the pop-up window select the Motion Hierarchy Retargetable asset for the sour
 ![create_create_motion_2_seq_retargetable_pick_src_target](img/create_create_motion_2_seq_retargetable_pick_src_target.png)
 
 
-The Motion to AnimSeq created is as follows Retargeter assets:
+The [Motion to AnimSeq](#motion-to-animseq-retargeter) created is as follows Retargeter assets:
 
 ![motion_2_seq_retargeter_in_content_browser](img/motion_2_seq_retargeter_in_content_browseer.png)
 
@@ -512,7 +577,11 @@ Then double-click on the asset in the *Motion Data Browser* to preview the retar
 
 ###Retarget between AnimSequence assets
 
-for using an * AnimSequence * asset as a retarget source is similar to using a Mocap asset as a retarget source. We first need to create a *Hierarchy* asset and a *Hierarchy Retargetable* asset based on the *Skeletal Mesh* asset of the retarget source. Then use the * Retargeter * asset to create a mapping between the two for retarget. Converted assets can be used out of the box in *Unreal Engine* because our tool does proper handling of root joints and IK joints.
+for using an *AnimSequence* asset as a retarget source is similar to using a Mocap asset as a retarget source. We first need to create a *Hierarchy* asset and a *Hierarchy Retargetable* asset based on the *Skeletal Mesh* asset of the retarget source. Then use the *Retargeter* asset to create a mapping between the two for retarget. Converted assets can be used out of the box in *Unreal Engine* because our tool does proper handling of root joints and IK joints.
+
+####Source animation download from mixamo.com
+
+![source_anim_download_from_mixamo](img/source_anim_download_from_mixamo.png)
 
 ####Create the Skeleton Hierarchy asset for the source animation.
 
@@ -528,6 +597,19 @@ The Skeleton Hierarchy asset created is as follows :
 
 ![mixamo_skeleton_hierarchy_asset_in_content_browser](img/mixamo_skeleton_hierarchy_asset_in_content_browser.png)
 
+Double-click an asset to open the corresponding editor:
+
+![open_mixamo_skeleton_hierarchy_editor](img/open_mixamo_skeleton_hierarchy_editor.png)
+
+
+
+In the *Edit Retarget Base Pose* panel:
+
+* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
+* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
+* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
+
+![skeleton_retarget_use_current_pose](img/use_current_pose.png)
 
 ####Create the Skeleton Hierarchy Retargetable asset for the source animation.
 
@@ -548,15 +630,6 @@ Double-click an asset to open the corresponding editor:
 ![open_smixamo_keleton_hierarchy_retargegtable_editor](img/open_mixamo_skeleton_hierarchy_retargegtable_editor.png)
 
 
-
-In the *Edit Retarget Base Pose* panel:
-
-* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
-* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
-* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
-
-![skeleton_retarget_use_current_pose](img/use_current_pose.png)
-
 Because there is already a fully consistent Joint Chains definition in other *Retargetable*, we can copy it from there. (Even if it is not consistent, it can be copied. Our tool will ignore the Joint Chains that do not match the *Hierarchy* correctly.)
 
 ![copy_motion_bone_chain_mapping](img/copy_motion_bone_chain_mapping.png)
@@ -570,63 +643,9 @@ Set retarget root bone
 
 ![set_mixamo_retargetable_root_bone](img/set_mixamo_retargetable_root_bone.png)
 
-####Create the Skeleton Hierarchy asset for the target animation
-(Reuse previously created)
-####Create the Skeleton Hierarchy Retargetable asset for target animation
-
-Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.
-
-![create_man2_skeleton_hierarchcy_retargetable](img/create_man2_skeleton_hierarchcy_retargetable.png)
-
-Select the Skeleton Hierarchy asset in the popup .
-
-![create_skeleton_hierarchy_retargetable_pick_mesh](img/create_skeleton_hierarchy_retargetable_pick_mesh.png)
-
-The following is the created Skeleton Hierarchy Retargetable asset:
-
-![skeleton_hierarchy_retargetable_in_content_browser](img/skeleton_hierarchy_retargetable_in_content_browseer.png)
-
-Double-click an asset to open the corresponding editor:
-
-![open_skeleton_hierarchy_retargegtable_editor](img/open_skeleton_hierarchy_retargegtable_editor.png)
-
-Edit *Retarget Base Pose* in the viewport (recommend adjusting it to T Pose).
 
 
-![skeleton_retarget_base_pose_edit_before](img/skeleton_retarget_base_pose_edit_before.png)
-Before
-
-![man3_skeleton_hierarchy_retargetable_after1_right](img/man3_skeleton_hierarchy_retargetable_after1_right.png)
-After
-
-![man3_skeleton_hierarchy_retargetable_befor_top](img/man3_skeleton_hierarchy_retargetable_befor_top.png)
-Before
-
-![man3_skeleton_hierarchy_retargetable_after_top](img/man3_skeleton_hierarchy_retargetable_after_top.png)
-After
-
-
-In the *Edit Retarget Base Pose* panel:
-
-* Click the *Use Current Pose* button to set the pose in the viewport to the *Retarget Base Pose* used by the *Retargetable* asset.
-* Click the *Restore to Base Pose* button to restore the pose in the viewport to *Retarget Base Pose*.
-* Click the *Reset Pose* button to reset the pose in the viewport to the *Retarget Base Pose* used by the *Hierarchy* asset that the *Retargetable* depends on.
-
-![skeleton_retarget_use_current_pose](img/use_current_pose.png)
-
-Because there is already a fully consistent Joint Chains definition in other *Retargetable*, we can copy it from there. (Even if it is not consistent, it can be copied. Our tool will ignore the Joint Chains that do not match the *Hierarchy* correctly.)
-
-![copy_man_skeleton_bone_chain_mapping](img/copy_man_skeleton_bone_chain_mapping.png)
-Copy
-
-![paste_man_skeleton_bone_chain_mapping](img/paste_man_skeleton_bone_chain_mapping.png)
-After
-
-Set retarget root bone
-
-![set_man_skeleton_hierarchy_retargetable_root_bone](img/set_man_skeleton_hierarchy_retargetable_root_bone.png)
-
-####Create Motion to AnimSeq Retargeter
+####Create Motion to AnimSeq Retargeter(reuse the previously created Target Skeleton Hierarchy Retargetable)
 
 Via selecting Motion to AnimSeq from the Swift Motion Toolkit category in the Content Browser context menu The Retargeter option creates corresponding assets.
 
