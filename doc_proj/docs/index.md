@@ -2,14 +2,13 @@
 
 ##Overview
 
-*Swift Motion Toolkit* is a set of character animation tools that integrates functions such as mo-cap resource import, animation retargeting, and Root Motion processing, etc. At the same time, it also supports retargeting AnimSequence assets between different characters. 
+*Swift Motion Toolkit* is a set of character animation tools that integrates functions such as mo-cap resource import, animation retargeting, and Root Motion processing, etc. At the same time, it also supports retargeting AnimSequence assets between different skeletal meshes. 
 
 ##Features
 
 * Import mo-cap animation in BVH format and provide a preview.
 * Retarget mo-cap animation to AnimSequence asset. 
-* Retarget mo-cap animation to AnimSequence asset. 
-* Supports more precise restoration of the position of end joints using IK.Supports more precise restoration of the position of end joints using IK.
+* Supports more precise restoration of the position of end joints using IK.
 * Supports synchronizing animation to IK bones.v
 * Supports baking vertical or (and) horizontal root displacements into animations.
 * Support for selectively preserving root rotation.
