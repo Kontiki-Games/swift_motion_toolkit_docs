@@ -9,7 +9,7 @@
 * Import mo-cap animation in BVH format and provide a preview.
 * Retarget mo-cap animation to AnimSequence asset. 
 * Supports more precise restoration of the position of end joints using IK.
-* Supports synchronizing animation to IK bones.v
+* Supports synchronizing root motion to root bone and IK bones.
 * Supports baking vertical or (and) horizontal root displacements into animations.
 * Support for selectively preserving root rotation.
 * Support for converting animations with root motion to in-place animations. 
@@ -169,6 +169,15 @@ Zoom can be done through the scroll wheel
 
 Right click drag to pan the timeline left and right
 ![motion_data_player_controller_pan](img/motion_data_player_controller_pan.gif)
+
+
+![play_control_widgets_introduce](img/play_control_widgets_introduce.png)
+
+Control | Description
+------------ | -------------
+1. Spin Box | Write the pose in the viewport to *Retarget Base Pose* 
+2. Retarget Base Pose Snapshot | Snapshot and upate Retarget Base Pose in hierarchy asset
+
 
 ####5. Details Tab
 
