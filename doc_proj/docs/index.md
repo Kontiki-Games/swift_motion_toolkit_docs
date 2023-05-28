@@ -29,39 +29,17 @@
 ##Vedio Tutorial
 <span id="video-tutorials"></span>
 
-###01 How to import mocap data to Unreal Engine via Swift Motion Toolkit
+### Swift Motion Toolkit tutorials 01
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/OiT2JbPOm5s" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLt62Gv_wadqXZW6YQkZCXNoVAg8s9NxwI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-###02 How to create and set motion hierarchy
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oA1L-Ih0WnE" frameborder="0" allowfullscreen></iframe>
 
-###03 How to adjust retarget base pose for motion hierarchy
-<iframe width="560" height="315" src="https://www.youtube.com/embed/M9h-d7t1A3s" frameborder="0" allowfullscreen></iframe>
+### Swift Motion Toolkit tutorials 02
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8SbfuMANnDk" frameborder="0" allowfullscreen></iframe>
 
-###04 How to create skeleton hierarchy and reteragetable assets
-<iframe width="560" height="315" src="https://www.youtube.com/embed/bJhmeuPyD9k" frameborder="0" allowfullscreen></iframe>
+### Swift Motion Toolkit tutorials 03
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pyroTgjXMlI" frameborder="0" allowfullscreen></iframe>
 
-###05 How to adjust retarget base pose 4 skeleton hierarchy
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MRFKUsXDwgM" frameborder="0" allowfullscreen></iframe>
-
-###06 How to setup skeletn hierarchy retargetable joint chain
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PZ1GuBCYymU" frameborder="0" allowfullscreen></iframe>
-
-###07 How to create and preview retargeter.
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xmt8KIhfWbA" frameborder="0" allowfullscreen></iframe>
-
-###08 How to solve problems via IK
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3eQNZE9eJw" frameborder="0" allowfullscreen></iframe>
-
-###09 How to solve problem result from IK
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XorognIRzGM" frameborder="0" allowfullscreen></iframe>
-
-###10 Retarget mocap to manny
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WbsVyfDHA3M" frameborder="0" allowfullscreen></iframe>
-
-###11 Retarget between AnimSequence assets
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CsU8S36i52Y" frameborder="0" allowfullscreen></iframe>
 
 ##Related assets
 ###Motion Hierarchy
@@ -685,4 +663,20 @@ Then double-click on the asset in the *Motion Data Browser* to preview the retar
 
 
 
+##Special statement and acknowledgment
 
+The resources used for demonstration in the video come from:
+
+<a href="https://github.com/ubisoft/ubisoft-laforge-animation-dataset">ubisoft-laforge-animation-dataset</a>
+
+<a href="https://www.mixamo.com/#/">mixamo</a>
+
+<a href="https://www.ianxmason.com/100style/">www.ianxmason.com/100style</a>
+
+
+
+
+The original image of the plugin's icon comes from:
+
+<a href="https://unsplash.com/photos/90v3asMhhL0">unsplash.com/photos/90v3asMhhL0</a>
+Kate Rogge's dance moves are elegant and extraordinary.
