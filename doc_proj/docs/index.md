@@ -14,6 +14,12 @@
 * Support for selectively preserving root rotation.
 * Support for converting animations with root motion to in-place animations. 
 
+##Purchase page
+
+<a href="https://www.unrealengine.com/marketplace/slug/3d117f0169784efda241a4f72df26a95">With source code version</a>
+
+<a href="https://kontikigames.gumroad.com/l/oxfbf">Precompiled binary version</a>
+
 ##Showcase
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_p9ttnPKMYI" frameborder="0" allowfullscreen></iframe>
