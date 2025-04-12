@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="canonical" href="https://kontiki-games.github.io/swift_motion_toolkit/index.html">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Swift Motion Toolkit Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/swift_motion_toolkit/index.html";
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> Swift Motion Toolkit Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Home</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#features">Features</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#purchase-page">Purchase page</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#showcase">Showcase</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vedio-tutorial">Vedio Tutorial</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#swift-motion-toolkit-tutorials-01">Swift Motion Toolkit tutorials 01</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#swift-motion-toolkit-tutorials-02">Swift Motion Toolkit tutorials 02</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#swift-motion-toolkit-tutorials-03">Swift Motion Toolkit tutorials 03</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#related-assets">Related assets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-hierarchy">Motion Hierarchy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-data">Motion Data</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-hierarchy-retargetable">Motion Hierarchy Retargetable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skeleton-hierarchy">Skeleton Hierarchy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skeleton-hierarchy-retargetable">Skeleton Hierarchy Retargetable</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-to-animseq-retargeter">Motion to AnimSeq Retargeter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#editor">Editor</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-hierarchy-editor">Motion Hierarchy Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details">2. Asset Details</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-viewport-tab">3. Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-details-tab">4. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-retarget-base-pose-tab">5. Retarget Base Pose Tab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-data-editor">Motion Data Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab_1">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details-tab">2. Asset Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-viewport-tab_1">3. Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-player-controller-tab">4. Player Controller Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-details-tab">5. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-motion-data-browser-tab">6. Motion Data Browser Tab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-hierarchy-retargetable-editor">Motion Hierarchy Retargetable Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab_2">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details-tab_1">2. Asset Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-viewport-tab_2">3. Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-details-tab_1">4. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-edit-retarget-base-pose-tab">5. Edit Retarget Base Pose Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-retarget-chains-tab">6. Retarget Chains Tab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skeleton-hierarchy-editor">Skeleton Hierarchy Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab_3">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details_1">2. Asset Details</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-viewport-tab_3">3. Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-details-tab_2">4. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-retarget-base-pose-tab_1">5. Retarget Base Pose Tab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#skeleton-hierarchy-retargetable-editor">Skeleton Hierarchy Retargetable Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab_4">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details-tab_2">2. Asset Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-ik-settings-tab">3. IK Settings Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-viewport-tab">4. Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-details-tab_1">5. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-edit-retarget-base-pose-tab">6. Edit Retarget Base Pose Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-retarget-chains-tab">7. Retarget Chains Tab</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#motion-to-animseq-retargeter-editor">Motion to AnimSeq Retargeter Editor</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#1-hierarchy-tree-tab_5">1. Hierarchy Tree Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#2-asset-details-tab_3">2. Asset Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#3-source-viewport-tab-target_viewport-tab">3. Source Viewport Tab &amp; Target_Viewport Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#4-player-controller-tab_1">4. Player Controller Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#5-details-tab_2">5. Details Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#6-motion-data-browser-tab_1">6. Motion Data Browser Tab</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#7-chain-mapping-tab">7. Chain Mapping Tab</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#enable-plugin">Enable plugin</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retarget-mo-cap-to-animsequence-asset">Retarget mo-cap to AnimSequence asset</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#import-motion-capture-resources">Import motion capture resources</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adjust-the-base-retarget-pose-in-the-motion-hierarchy-asset-to-tpose">Adjust the Base Retarget Pose in the Motion Hierarchy asset to TPose</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-the-motion-hierarchy-retargetable-asset">Create the Motion Hierarchy Retargetable asset</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-the-skeleton-hierarchy-asset">Create the Skeleton Hierarchy asset.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-the-skeleton-hierarchy-retargetable-asset">Create the Skeleton Hierarchy Retargetable asset.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-motion-to-animseq-retargeter">Create Motion to AnimSeq Retargeter</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#retarget-between-animsequence-assets">Retarget between AnimSequence assets</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#source-animation-download-from-mixamocom">Source animation download from mixamo.com</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-the-skeleton-hierarchy-asset-for-the-source-animation">Create the Skeleton Hierarchy asset for the source animation.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-the-skeleton-hierarchy-retargetable-asset-for-the-source-animation">Create the Skeleton Hierarchy Retargetable asset for the source animation.</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#create-motion-to-animseq-retargeterreuse-the-previously-created-target-skeleton-hierarchy-retargetable">Create Motion to AnimSeq Retargeter(reuse the previously created Target Skeleton Hierarchy Retargetable)</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#special-statement-and-acknowledgment">Special statement and acknowledgment</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Swift Motion Toolkit Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="welcome-to-swift-motion-toolkit-manual">Welcome to Swift Motion Toolkit Manual</h1>
+<h2 id="overview">Overview</h2>
+<p><em>Swift Motion Toolkit</em> is a set of character animation tools that integrates functions such as mo-cap resource import, animation retargeting, and Root Motion processing, etc. At the same time, it also supports retargeting AnimSequence assets between different skeletal meshes. </p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Import mo-cap animation in BVH format and provide a preview.</li>
+<li>Retarget mo-cap animation to AnimSequence asset. </li>
+<li>Supports more precise restoration of the position of end joints using IK.</li>
+<li>Supports synchronizing root motion to root bone and IK bones.</li>
+<li>Supports baking vertical or (and) horizontal root displacements into animations.</li>
+<li>Support for selectively preserving root rotation.</li>
+<li>Support for converting animations with root motion to in-place animations. </li>
+</ul>
+<h2 id="purchase-page">Purchase page</h2>
+<p><a href="https://www.unrealengine.com/marketplace/slug/3d117f0169784efda241a4f72df26a95">With source code version</a></p>
+<p><a href="https://kontikigames.gumroad.com/l/oxfbf">Precompiled binary version</a></p>
+<h2 id="showcase">Showcase</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_p9ttnPKMYI" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dRPSrGvM67U" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZWKmjRFj-kE" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TycKnmd63KM" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="vedio-tutorial">Vedio Tutorial</h2>
+<p><span id="video-tutorials"></span></p>
+<h3 id="swift-motion-toolkit-tutorials-01">Swift Motion Toolkit tutorials 01</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLt62Gv_wadqXZW6YQkZCXNoVAg8s9NxwI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<h3 id="swift-motion-toolkit-tutorials-02">Swift Motion Toolkit tutorials 02</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8SbfuMANnDk" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="swift-motion-toolkit-tutorials-03">Swift Motion Toolkit tutorials 03</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pyroTgjXMlI" frameborder="0" allowfullscreen></iframe>
+
+<h2 id="related-assets">Related assets</h2>
+<h3 id="motion-hierarchy">Motion Hierarchy</h3>
+<p><span id="motion-hierarchy"></span>
+<em>Motion Hierarchy</em> asset contains the skeleton hierarchy used in mo-cap animation and a retarget base pose.</p>
+<h3 id="motion-data">Motion Data</h3>
+<p><span id="motion-data"></span>
+<em>Motion Data</em> contains a series of pose data related to time in mo-cap animations. And hold a reference to a Motion Hierarchy asset. This Motion Hierarchy asset can explain the hierarchy of each pose in Motion Data. </p>
+<h3 id="motion-hierarchy-retargetable">Motion Hierarchy Retargetable</h3>
+<p><span id="motion-skeleton-hierarchy"></span>
+<em>Motion Hierarchy Retargetable</em> holds a reference to a <em>Motion Hierarchy</em> asset. This asset allows users to define several bone chains for action retarget, and allows users to define new retarget base poses (if the retarget base pose is not defined in <em>Motion Hierarchy Retargetable</em>, the retarget base pose in <em>Motion Hierarchy</em> will be used). </p>
+<h3 id="skeleton-hierarchy">Skeleton Hierarchy</h3>
+<p><span id="skeleton-hierarchy"></span>
+<em>Skeleton Hierarchy</em> holds a reference to a <em>USkeleton</em> asset. This asset allows users to define a new retarget base pose (if the retarget base pose is not defined in <em>Skeleton Hierarchy</em>, the retarget base pose in <em>USkeleton</em> will be used). </p>
+<h3 id="skeleton-hierarchy-retargetable">Skeleton Hierarchy Retargetable</h3>
+<p><span id="skeleton-hierarchy-retargetable"></span>
+<em>Skeleton Hierarchy Retargetable</em> holds a reference to a Skeleton Hierarchy * asset. This asset allows users to define several bone chains for action retarget, and a new retarget base pose (if the retarget base pose is not defined in <em>Skeleton Hierarchy Retargetable</em>, the retarget base pose in <em>Skeleton Hierarchy</em> will be used). </p>
+<h3 id="motion-to-animseq-retargeter">Motion to AnimSeq Retargeter</h3>
+<p><span id="motion-to-animseq-retargeter"></span>
+<em>Motion to AnimSeq Retargeter</em> holds a pair of <em>Hierarchy Retargetable</em> as the source and target for retarget. This asset allows users to configure the bone chain mapping tables of the source and target, as well as FK, IK, and Root Motion. And provide a preview and export of the retarget results. </p>
+<h2 id="editor">Editor</h2>
+<h3 id="motion-hierarchy-editor">Motion Hierarchy Editor</h3>
+<p><span id="motion-hierarchy-editor"></span>
+Support preview and editing of Motion Hierarchy. </p>
+<p><img alt="motion_hierarchy_editor_overview" src="img/motion_hierarchy_editor_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab">1. Hierarchy Tree Tab</h4>
+<p><img alt="motion_hierarchy_tree_tab" src="img/motion_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details">2. Asset Details</h4>
+<p><img alt="motion_data_editor_overview" src="img/motion_date_editor_asset_details.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left Joint Identification List</td>
+<td>Left Joint Identification List</td>
+</tr>
+<tr>
+<td>Flag</td>
+<td>The identifier in the joint name</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Identification type: 1. Prefix 2. Suffix 3. Contain</td>
+</tr>
+<tr>
+<td>Left Joint Display Color</td>
+<td>The color displayed for the left joint</td>
+</tr>
+<tr>
+<td>Right Joint Identification List</td>
+<td>Right Joint Identification List</td>
+</tr>
+<tr>
+<td>Flag</td>
+<td>The identifier in the joint name</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Identification type: 1. Prefix 2. Suffix 3. Contain</td>
+</tr>
+<tr>
+<td>Right Joint Display Color</td>
+<td>The color displayed for the right joint</td>
+</tr>
+<tr>
+<td>Other Joint Display Color</td>
+<td>The color displayed for other joints</td>
+</tr>
+</tbody>
+</table>
+<p>(Note: Multiple elements are allowed in the identification list. If the joint name meets any of these conditions, it is judged as 'TRUE'.)</p>
+<h4 id="3-viewport-tab">3. Viewport Tab</h4>
+<p><img alt="hierarchy_viewport_details_tab" src="img/hierarchy_viewport_details_tab.png" /></p>
+<h4 id="4-details-tab">4. Details Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/motion_details.png" /></p>
+<h4 id="5-retarget-base-pose-tab">5. Retarget Base Pose Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/edit_retarget_base_pose.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Current Pose</td>
+<td>Write the pose in the viewport to <em>Retarget Base Pose</em></td>
+</tr>
+<tr>
+<td>Restore to Base Pose</td>
+<td>Restore <em>Retarget Base Pose</em> to a viewport</td>
+</tr>
+<tr>
+<td>Reset Pose</td>
+<td>Write the reference pose to <em>Target Base Pose</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="motion-data-editor">Motion Data Editor</h3>
+<p><span id="motion-data-editor"></span>
+    Support preview of Motion Data.</p>
+<p><img alt="motion_data_editor_overview" src="img/motion_data_editor_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab_1">1. Hierarchy Tree Tab</h4>
+<p><img alt="motion_hierarchy_tree_tab" src="img/motion_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details-tab">2. Asset Details Tab</h4>
+<p><img alt="motion_hierarchy_retargetable_asset_details_tab" src="img/motion_data_asset_details_tab.png" /></p>
+<h4 id="3-viewport-tab_1">3. Viewport Tab</h4>
+<p><img alt="motion_hierarchy_viewport_details_tab" src="img/motion_viewport_details_tab.png" /></p>
+<h4 id="4-player-controller-tab">4. Player Controller Tab</h4>
+<p><img alt="player_controller_tab" src="img/player_controller_tab.png" /></p>
+<p>Zoom can be done through the scroll wheel
+<img alt="motion_data_player_controller_zoom" src="img/motion_data_player_controller_zoom.gif" /></p>
+<p>Right click drag to pan the timeline left and right
+<img alt="motion_data_player_controller_pan" src="img/motion_data_player_controller_pan.gif" /></p>
+<p><img alt="play_control_widgets_introduce" src="img/play_control_widgets_introduce.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Spin Box</td>
+<td>Write the pose in the viewport to <em>Retarget Base Pose</em></td>
+</tr>
+<tr>
+<td>2. Retarget Base Pose Snapshot</td>
+<td>Snapshot and upate Retarget Base Pose in hierarchy asset</td>
+</tr>
+</tbody>
+</table>
+<h4 id="5-details-tab">5. Details Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/motion_details.png" /></p>
+<h4 id="6-motion-data-browser-tab">6. Motion Data Browser Tab</h4>
+<p><img alt="motion_data_browser" src="img/motion_data_browser.png" /></p>
+<h3 id="motion-hierarchy-retargetable-editor">Motion Hierarchy Retargetable Editor</h3>
+<p><span id="motion-hierarchy-retargetable-editor"></span>
+    Support preview and editing of Motion Hierarchy Retargetable. </p>
+<p><img alt="motion_hierarchy_retargetable_overview" src="img/motion_hierarchy_retargetable_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab_2">1. Hierarchy Tree Tab</h4>
+<p><img alt="motion_hierarchy_tree_tab" src="img/motion_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details-tab_1">2. Asset Details Tab</h4>
+<p><img alt="motion_hierarchy_retargetable_asset_details_tab" src="img/motion_hierarchy_retargetable_asset_details_tab.png" /></p>
+<h4 id="3-viewport-tab_2">3. Viewport Tab</h4>
+<p><img alt="motion_hierarchy_viewport_details_tab" src="img/motion_hierarchy_viewport_details_tab.png" /></p>
+<h4 id="4-details-tab_1">4. Details Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/motion_details.png" /></p>
+<h4 id="5-edit-retarget-base-pose-tab">5. Edit Retarget Base Pose Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/edit_retarget_base_pose.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Current Pose</td>
+<td>Write the pose in the viewport to <em>Retarget Base Pose</em></td>
+</tr>
+<tr>
+<td>Restore to Base Pose</td>
+<td>Restore <em>Retarget Base Pose</em> to a viewport</td>
+</tr>
+<tr>
+<td>Reset Pose</td>
+<td>Write the reference pose to <em>Target Base Pose</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-retarget-chains-tab">6. Retarget Chains Tab</h4>
+<p><img alt="chain_settings" src="img/chain_settings.png" /></p>
+<p>Allow copy and paste</p>
+<p><img alt="retarget_chain_copy_paste.gif" src="img/retarget_chain_copy_paste.gif" /></p>
+<h3 id="skeleton-hierarchy-editor">Skeleton Hierarchy Editor</h3>
+<p><span id="skeleton-hierarchy-editor"></span>
+    Supports preview and editing of Skeleton Hierarchy.
+<img alt="skeleton_hierarchy_retargetable_editor_overview" src="img/skeleton_hierarchy_editor_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab_3">1. Hierarchy Tree Tab</h4>
+<p><img alt="skeleton_hierarchy_tree_tab" src="img/skeleton_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details_1">2. Asset Details</h4>
+<p><img alt="motion_data_editor_overview" src="img/motion_date_editor_asset_details.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left Joint Identification List</td>
+<td>Left Joint Identification List</td>
+</tr>
+<tr>
+<td>Flag</td>
+<td>Left Joint Identification List</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Identification type: 1. Prefix 2. Suffix 3. Contain</td>
+</tr>
+<tr>
+<td>Left Joint Display Color</td>
+<td>The color displayed for the left joint</td>
+</tr>
+<tr>
+<td>Right Joint Identification List</td>
+<td>Right Joint Identification List</td>
+</tr>
+<tr>
+<td>Flag</td>
+<td>The identifier in the joint name</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Identification type: 1. Prefix 2. Suffix 3. Contain</td>
+</tr>
+<tr>
+<td>Right Joint Display Color</td>
+<td>The color displayed for the right joint</td>
+</tr>
+<tr>
+<td>Other Joint Display Color</td>
+<td>The color displayed for other joints</td>
+</tr>
+</tbody>
+</table>
+<p>(Note: Multiple elements are allowed in the identification list. If the joint name meets any of these conditions, it is judged as 'TRUE'.)</p>
+<h4 id="3-viewport-tab_3">3. Viewport Tab</h4>
+<p><img alt="skeleton_hierarchy_viewport_details_tab" src="img/skeleton_hierarchy_viewport_details_tab.png" /></p>
+<h4 id="4-details-tab_2">4. Details Tab</h4>
+<p><img alt="skeleton_hierarchy_details" src="img/skeleton_hierarchy_details.png" /></p>
+<h4 id="5-retarget-base-pose-tab_1">5. Retarget Base Pose Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/edit_retarget_base_pose.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Current Pose</td>
+<td>Write the pose in the viewport to <em>Retarget Base Pose</em></td>
+</tr>
+<tr>
+<td>Restore to Base Pose</td>
+<td>Restore <em>Retarget Base Pose</em> to a viewport</td>
+</tr>
+<tr>
+<td>Reset Pose</td>
+<td>Write the reference pose to <em>Target Base Pose</em></td>
+</tr>
+</tbody>
+</table>
+<h3 id="skeleton-hierarchy-retargetable-editor">Skeleton Hierarchy Retargetable Editor</h3>
+<p><span id="skeleton-hierarchy-retargetable-editor"></span>
+    Support for preview and editing of Skeleton Hierarchy Retargetable.
+<img alt="skeleton_hierarchy_retargetable_editor_overview" src="img/skeleton_hierarchy_retargetable_editor_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab_4">1. Hierarchy Tree Tab</h4>
+<p><img alt="skeleton_hierarchy_tree_tab" src="img/skeleton_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details-tab_2">2. Asset Details Tab</h4>
+<p><img alt="skeleton_hierarchy_retargetable_asset_details_tab" src="img/skeleton_hierarchy_retargetable_asset_details_tab.png" /></p>
+<h4 id="3-ik-settings-tab">3. IK Settings Tab</h4>
+<p><img alt="skeleton_hierarchy_retargetable_ik_settings_tab" src="img/skeleton_hierarchy_retargetable_ik_settings_tab.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Add New Solver</td>
+<td>Add New Solver</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Check box</td>
+<td>Enable/Disable solver</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Trash can icon button</td>
+<td>Delete corresponding solver</td>
+</tr>
+</tbody>
+</table>
+<p>(Note: Select any solver , and its configuration interface will be displayed in the Details tab.)</p>
+<h4 id="4-viewport-tab">4. Viewport Tab</h4>
+<p><img alt="skeleton_hierarchy_retargetable_viewport_tab" src="img/skeleton_hierarchy_retargetable_viewport_tab.png" /></p>
+<h4 id="5-details-tab_1">5. Details Tab</h4>
+<p><img alt="skeleton_hierarchy_retargetable_details" src="img/skeleton_hierarchy_retargetable_details.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Pole Vector</td>
+<td>Whether to use pole vector</td>
+</tr>
+<tr>
+<td>Pole Vector</td>
+<td>Pole Vector</td>
+</tr>
+<tr>
+<td>Target Alpha</td>
+<td>Target application level</td>
+</tr>
+<tr>
+<td>Target Alpha</td>
+<td>Target tolerance amount</td>
+</tr>
+<tr>
+<td>Tip Bone Keep Local Rot</td>
+<td>Whether the end node keeps the rotation of the Local space after applying IK, or keeps the rotation of the Global space before applying IK</td>
+</tr>
+<tr>
+<td>Joint Chain Name</td>
+<td>Bone chain name</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-edit-retarget-base-pose-tab">6. Edit Retarget Base Pose Tab</h4>
+<p><img alt="edit_retarget_base_pose" src="img/edit_retarget_base_pose.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use Current Pose</td>
+<td>Write the pose in the viewport to <em>Retarget Base Pose</em></td>
+</tr>
+<tr>
+<td>Restore to Base Pose</td>
+<td>Restore <em>Retarget Base Pose</em> to a viewport</td>
+</tr>
+<tr>
+<td>Reset Pose</td>
+<td>Write the reference pose to <em>Target Base Pose</em></td>
+</tr>
+</tbody>
+</table>
+<h4 id="7-retarget-chains-tab">7. Retarget Chains Tab</h4>
+<p><img alt="skeleton_hierarchy_retargetable_chain_settings" src="img/skeleton_hierarchy_retargetable_chain_settings.png" /></p>
+<p>Allow copy and paste</p>
+<p><img alt="retarget_chain_copy_paste.gif" src="img/retarget_chain_copy_paste.gif" /></p>
+<h3 id="motion-to-animseq-retargeter-editor">Motion to AnimSeq Retargeter Editor</h3>
+<p><span id="motion-to-animseq-retargeter-editor"></span>
+    Supports retarget settings between source and target and preview of results.
+<img alt="motion_to_animseq_retargeter_editor_overview" src="img/motion_to_animseq_retargeter_editor_overview.png" /></p>
+<h4 id="1-hierarchy-tree-tab_5">1. Hierarchy Tree Tab</h4>
+<p><img alt="skeleton_hierarchy_tree_tab" src="img/skeleton_hierarchy_tree_tab.png" /></p>
+<h4 id="2-asset-details-tab_3">2. Asset Details Tab</h4>
+<p><img alt="motion_to_animseq_retargeter_asset_details_tab" src="img/motion_to_animseq_retargeter_asset_details_tab.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source</td>
+<td>Source Retargetable</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>Target Retargetable</td>
+</tr>
+<tr>
+<td>Horizontal Root Offset Scale</td>
+<td>Root offset scaling in the horizontal direction</td>
+</tr>
+<tr>
+<td>Verticle Root Offset Scale</td>
+<td>Root offset scaling in the vertical direction</td>
+</tr>
+<tr>
+<td>Convert Motion To Root Bone</td>
+<td>Set motion to root bone</td>
+</tr>
+<tr>
+<td>Bake Root Rotation in Animation</td>
+<td>Bake the rotation of the root node to the animation</td>
+</tr>
+<tr>
+<td>Keep Root Rotation Around Up Only</td>
+<td>Keep Root only around the rotation in the upward direction</td>
+</tr>
+<tr>
+<td>Bake Root Verticle Translation in Animation</td>
+<td>Bake the vertical displacement of the root node to the animation</td>
+</tr>
+<tr>
+<td>Bake Horizontal Translation in Animation</td>
+<td>Bake the horizontal displacement of the root node to the animation</td>
+</tr>
+<tr>
+<td>Convert to In Place Animation</td>
+<td>Whether to convert to in-place animation</td>
+</tr>
+<tr>
+<td>IKCorrection Enalbe</td>
+<td>Whether to enable IK</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-source-viewport-tab-target_viewport-tab">3. Source Viewport Tab &amp; Target_Viewport Tab</h4>
+<p><img alt="motion_to_animseq_retargeter_src_target_viewport_tab" src="img/motion_to_animseq_retargeter_src_target_viewport_tab.gif" /></p>
+<h4 id="4-player-controller-tab_1">4. Player Controller Tab</h4>
+<p><img alt="player_controller_tab" src="img/player_controller_tab.png" /></p>
+<p>Zoom with scroll wheel
+<img alt="motion_data_player_controller_zoom" src="img/motion_data_player_controller_zoom.gif" /></p>
+<p>Right-click and drag to pan the timeline left and right
+<img alt="motion_data_player_controller_pan" src="img/motion_data_player_controller_pan.gif" /></p>
+<h4 id="5-details-tab_2">5. Details Tab</h4>
+<p><img alt="motion_to_animseq_retargeter_details" src="img/motion_to_animseq_retargeter_details.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Source Chain</td>
+<td>Source bone chain</td>
+</tr>
+<tr>
+<td>Target Chain</td>
+<td>Target joint chain</td>
+</tr>
+<tr>
+<td>Rotation Mode</td>
+<td>Select the mode for establishing the mapping relationship between the source and target chains.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="6-motion-data-browser-tab_1">6. Motion Data Browser Tab</h4>
+<p><img alt="motion_to_animseq_retargeter_motion_data_browser" src="img/motion_to_animseq_retargeter_motion_data_browser.png" /></p>
+<h4 id="7-chain-mapping-tab">7. Chain Mapping Tab</h4>
+<p><img alt="motion_to_animseq_chain_mapping" src="img/motion_to_animseq_chain_mapping.png" /></p>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auto-Map Chains</td>
+<td>Attempt to automatically pair by name.</td>
+</tr>
+<tr>
+<td>Drop-down menu in the Source Chain column</td>
+<td>Manually select the source joint chain</td>
+</tr>
+</tbody>
+</table>
+<h2 id="quick-start">Quick Start</h2>
+<p>In this quick start guide we will show you how to import a mo-cap file saved in bvh format into Unreal Engine Editor and retarget it to skeletal animation of an existing character. It also shows how to convert animations between two characters with different bone hierarchies, such as retargeting animations downloaded from the mixamo.com website to standard Unreal Engine skinned characters. For more detailed use, please refer to the <a href="#video-tutorials">Video Tutorials</a></p>
+<h4 id="enable-plugin">Enable plugin</h4>
+<p>Download and make sure to enable the plugin in the editor.</p>
+<p><img alt="open_plugins_panel" src="img/open_plugins_panel_.png" /></p>
+<p><img alt="swift_motion_toolkit_in_plugins_panel" src="img/swift_motion_toolkit_in_plugins_panel.png" /></p>
+<h3 id="retarget-mo-cap-to-animsequence-asset">Retarget mo-cap to AnimSequence asset</h3>
+<h4 id="import-motion-capture-resources">Import motion capture resources</h4>
+<p>Drag and drop the Mocap resource file in bvh format to the Content Browser of Unreal Engine.</p>
+<p><img alt="lafan_bvh_files_in_explorer" src="img/lafan_bvh_files_in_explorer.png" /></p>
+<p>You can choose to import Hierarchy assets only or Motion Data assets as well. If you need to import a Motion Data asset, you must select a compatible Hierarchy asset. You can check to import Hierarchy assets or select existing Hierarchy assets. </p>
+<p><img alt="bvh_importer_option_ui" src="img/bvh_importer_option_ui.png" /></p>
+<p>If you choose to import both, the result is shown in the image below:</p>
+<p><img alt="mocap_related_assets" src="img/mocap_related_assets.png" /></p>
+<p>(1) is <a href="#motion-data">Motion Data</a>, (2) is <a href="#motion-hierarchy">Motion Hierarchy</a></p>
+<p>Assets can be double-clicked to open them for viewing in the <a href="#motion-data-editor">Motion Data Editor</a> and <a href="#motion-hierarchy-editor">Motion Hierarchy Editor</a> respectively.</p>
+<h4 id="adjust-the-base-retarget-pose-in-the-motion-hierarchy-asset-to-tpose">Adjust the Base Retarget Pose in the Motion Hierarchy asset to TPose</h4>
+<p><img alt="retarget_base_pose_edit_before" src="img/retarget_base_pose_edit_before.png" /></p>
+<p>Before</p>
+<p><img alt="retarget_base_pose_edit_after" src="img/retarget_base_pose_edit_after.png" /></p>
+<p>After</p>
+<p>In the <em>Edit Retarget Base Pose</em> panel:</p>
+<ul>
+<li>Click the <em>Use Current Pose</em> button to set the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Retargetable</em> asset.</li>
+<li>Click the <em>Restore to Base Pose</em> button to restore the pose in the viewport to <em>Retarget Base Pose</em>.</li>
+<li>Click the <em>Reset Pose</em> button to reset the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Hierarchy</em> asset that the <em>Retargetable</em> depends on.</li>
+</ul>
+<h4 id="create-the-motion-hierarchy-retargetable-asset">Create the Motion Hierarchy Retargetable asset</h4>
+<p>by selecting the Motion Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.</p>
+<p><img alt="create_motion_hierarchy_retargetable_asset" src="img/create_motion_hierarchy_retargetable_asset.png" /></p>
+<p>In the popup select the Motion Hierarchy asset as the retarget source.</p>
+<p><img alt="create_motion_hierarchy_retargetable_asset_pick_hierarchy" src="img/create_motion_hierarchy_retargetable_asset_pick_hierarchy.png" /></p>
+<p>The following is the <a href="#motion-hierarchy-retargetable">Motion Hierarchy Retargetable</a> asset created:</p>
+<p><img alt="motion_hierarchy_retargetable_in_content_browser" src="img/motion_hierarchy_retargetable_in_content_browser.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p>In the <em>Joint Chain Settings</em> panel, the <em>Joint Chain</em> and the <em>Retargetable Root Bone</em> for the current <em>Retargetable</em> can be defined.</p>
+<p><img alt="motion_bone_chain_edit" src="img/motion_bone_chain_edit.png" /></p>
+<h4 id="create-the-skeleton-hierarchy-asset">Create the Skeleton Hierarchy asset.</h4>
+<p>Via selecting the Skeleton Hierarchy option in the Swift Motion Toolkit category of the Content Browser context menu.</p>
+<p><img alt="create_skeleton_hierarchy" src="img/create_skeleton_hierarchy.png" /></p>
+<p>Select the Skeletal Mesh asset in the popup .</p>
+<p><img alt="create_skeleton_hierarchy_pick_mesh" src="img/create_skeleton_hierarchy_pick_mesh.png" /></p>
+<p>The <a href="#skeleton-hierarchy">Skeleton Hierarchy</a> asset created is as follows :</p>
+<p><img alt="skeleton_hierarchy_asset_in_content_browser" src="img/skeleton_hierarchy_asset_in_content_browser.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_skeleton_hierarchy_editor" src="img/open_skeleton_hierarchy_editor.png" /></p>
+<p>Edit <em>Retarget Base Pose</em> in the viewport (recommend adjusting it to T Pose).</p>
+<p><img alt="skeleton_retarget_base_pose_edit_before" src="img/skeleton_retarget_base_pose_edit_before.png" />
+Before</p>
+<p><img alt="skeleton_retarget_base_pose_edit_after" src="img/skeleton_retarget_base_pose_edit_after.png" />
+After</p>
+<p>In the <em>Edit Retarget Base Pose</em> panel:</p>
+<ul>
+<li>Click the <em>Use Current Pose</em> button to set the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Retargetable</em> asset.</li>
+<li>Click the <em>Restore to Base Pose</em> button to restore the pose in the viewport to <em>Retarget Base Pose</em>.</li>
+<li>Click the <em>Reset Pose</em> button to reset the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Hierarchy</em> asset that the <em>Retargetable</em> depends on.</li>
+</ul>
+<p><img alt="skeleton_retarget_use_current_pose" src="img/use_current_pose.png" /></p>
+<h4 id="create-the-skeleton-hierarchy-retargetable-asset">Create the Skeleton Hierarchy Retargetable asset.</h4>
+<p>Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.</p>
+<p><img alt="create_skeleton_hierarchy_retargetable" src="img/create_skeleton_hierarchy_retargetable.png" /></p>
+<p>Select the Skeleton Hierarchy asset in the popup .</p>
+<p><img alt="create_skeleton_hierarchy_retargetable_pick_mesh" src="img/create_skeleton_hierarchy_retargetable_pick_mesh.png" /></p>
+<p>The following is the created <a href="#skeleton-hierarchy-retargetable">Skeleton Hierarchy Retargetable</a> asset:</p>
+<p><img alt="skeleton_hierarchy_retargetable_in_content_browser" src="img/skeleton_hierarchy_retargetable_in_content_browseer.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_skeleton_hierarchy_retargegtable_editor" src="img/open_skeleton_hierarchy_retargegtable_editor.png" /></p>
+<p>In the <em>Joint Chain Settings</em> panel, it is possible to define the <em>Joint Chain</em> and the <em>Retargetable Root Bone</em> for the current <em>Retargetable</em>.</p>
+<p><img alt="skeleton_retarget_bone_chain_edit" src="img/skeleton_retarget_bone_chain_edit.png" /></p>
+<h4 id="create-motion-to-animseq-retargeter">Create Motion to AnimSeq Retargeter</h4>
+<p>By selecting Motion to AnimSeq from the Swift Motion Toolkit category in the Content Browser context menu The Retargeter option creates corresponding assets.</p>
+<p><img alt="create_motion_2_seq_retargetable" src="img/create_motion_2_seq_retargetable.png" /></p>
+<p>In the pop-up window select the Motion Hierarchy Retargetable asset for the source and the Skeleton Hierarchy Retargetable asset for the target respectively.</p>
+<p><img alt="create_create_motion_2_seq_retargetable_pick_src_target" src="img/create_create_motion_2_seq_retargetable_pick_src_target.png" /></p>
+<p>The <a href="#motion-to-animseq-retargeter">Motion to AnimSeq</a> created is as follows Retargeter assets:</p>
+<p><img alt="motion_2_seq_retargeter_in_content_browser" src="img/motion_2_seq_retargeter_in_content_browseer.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_motion_2_seq_retargeter_editor" src="img/open_motion_2_seq_retargeter_editor.png" /></p>
+<p>In the <em>Chain Mapping</em> panel, we can set the mapping relationship between the retarget source and target <em>Joint Chains</em>.</p>
+<p><img alt="source_and_target_chain_mapping" src="img/source_and_target_chain_mapping.png" /></p>
+<p>Then double-click on the asset in the <em>Motion Data Browser</em> to preview the retargeting result in the viewport.</p>
+<p><img alt="motion_retargeter_browser" src="img/motion_retargeter_browser.png" /></p>
+<p><img alt="mocap_to_ue_mesh_preview" src="img/mocap_to_ue_mesh_preview.gif" /></p>
+<h3 id="retarget-between-animsequence-assets">Retarget between AnimSequence assets</h3>
+<p>for using an <em>AnimSequence</em> asset as a retarget source is similar to using a Mocap asset as a retarget source. We first need to create a <em>Hierarchy</em> asset and a <em>Hierarchy Retargetable</em> asset based on the <em>Skeletal Mesh</em> asset of the retarget source. Then use the <em>Retargeter</em> asset to create a mapping between the two for retarget. Converted assets can be used out of the box in <em>Unreal Engine</em> because our tool does proper handling of root joints and IK joints.</p>
+<h4 id="source-animation-download-from-mixamocom">Source animation download from mixamo.com</h4>
+<p><img alt="source_anim_download_from_mixamo" src="img/source_anim_download_from_mixamo.png" /></p>
+<h4 id="create-the-skeleton-hierarchy-asset-for-the-source-animation">Create the Skeleton Hierarchy asset for the source animation.</h4>
+<p>Via selecting the Skeleton Hierarchy option in the Swift Motion Toolkit category of the Content Browser context menu.</p>
+<p><img alt="create_mixamo_skeleton_hierarchy" src="img/create_mixamo_skeleton_hierarchy.png" /></p>
+<p>In the popup select the Skeletal Mesh asset as the retarget source.</p>
+<p><img alt="create_mixamo_skeleton_hierarchy_pick_mesh" src="img/create_mixamo_skeleton_hierarchy_pick_mesh.png" /></p>
+<p>The Skeleton Hierarchy asset created is as follows :</p>
+<p><img alt="mixamo_skeleton_hierarchy_asset_in_content_browser" src="img/mixamo_skeleton_hierarchy_asset_in_content_browser.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_mixamo_skeleton_hierarchy_editor" src="img/open_mixamo_skeleton_hierarchy_editor.png" /></p>
+<p>In the <em>Edit Retarget Base Pose</em> panel:</p>
+<ul>
+<li>Click the <em>Use Current Pose</em> button to set the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Retargetable</em> asset.</li>
+<li>Click the <em>Restore to Base Pose</em> button to restore the pose in the viewport to <em>Retarget Base Pose</em>.</li>
+<li>Click the <em>Reset Pose</em> button to reset the pose in the viewport to the <em>Retarget Base Pose</em> used by the <em>Hierarchy</em> asset that the <em>Retargetable</em> depends on.</li>
+</ul>
+<p><img alt="skeleton_retarget_use_current_pose" src="img/use_current_pose.png" /></p>
+<h4 id="create-the-skeleton-hierarchy-retargetable-asset-for-the-source-animation">Create the Skeleton Hierarchy Retargetable asset for the source animation.</h4>
+<p>Via selecting the Skeleton Hierarchy Retargetable option in the Swift Motion Toolkit category of the Content Browser context menu.</p>
+<p><img alt="create_mixamo_skeleton_hierarchy_retargetable" src="img/create_mixamo_skeleton_hierarchy_retargetable.png" /></p>
+<p>Select the Skeleton Hierarchy asset in the popup .</p>
+<p><img alt="create_mixamo_skeleton_hierarchy_retargetable_pick_mesh" src="img/create_mixamo_skeleton_hierarchy_retargetable_pick_mesh.png" /></p>
+<p>The following is the created Skeleton Hierarchy Retargetable asset:</p>
+<p><img alt="mixamo_skeleton_hierarchy_retargetable_in_content_browser" src="img/mixamo_skeleton_hierarchy_retargetable_in_content_browseer.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_smixamo_keleton_hierarchy_retargegtable_editor" src="img/open_mixamo_skeleton_hierarchy_retargegtable_editor.png" /></p>
+<p>Because there is already a fully consistent Joint Chains definition in other <em>Retargetable</em>, we can copy it from there. (Even if it is not consistent, it can be copied. Our tool will ignore the Joint Chains that do not match the <em>Hierarchy</em> correctly.)</p>
+<p><img alt="copy_motion_bone_chain_mapping" src="img/copy_motion_bone_chain_mapping.png" />
+Copy</p>
+<p><img alt="paste_motion_bone_chain_mapping" src="img/paste_motion_bone_chain_mapping.png" />
+Paste</p>
+<p>Set retarget root bone</p>
+<p><img alt="set_mixamo_retargetable_root_bone" src="img/set_mixamo_retargetable_root_bone.png" /></p>
+<h4 id="create-motion-to-animseq-retargeterreuse-the-previously-created-target-skeleton-hierarchy-retargetable">Create Motion to AnimSeq Retargeter(reuse the previously created Target Skeleton Hierarchy Retargetable)</h4>
+<p>Via selecting Motion to AnimSeq from the Swift Motion Toolkit category in the Content Browser context menu The Retargeter option creates corresponding assets.</p>
+<p><img alt="create_mixamo_motion_2_seq_retargeter" src="img/create_mixamo_motion_2_seq_retargeter.png" /></p>
+<p>In the pop-up window select the Motion Hierarchy Retargetable asset for the source and the Skeleton Hierarchy Retargetable asset for the target respectively.</p>
+<p><img alt="create_create_mixamo_motion_2_seq_retargeter_pick_src_target" src="img/create_create_mixamo_motion_2_seq_retargeter_pick_src_target.png" /></p>
+<p>The Motion to AnimSeq created is as follows Retargeter assets:</p>
+<p><img alt="mixamo_motion_2_seq_retargeter_in_content_browser" src="img/mixamo_motion_2_seq_retargeter_in_content_browseer.png" /></p>
+<p>Double-click an asset to open the corresponding editor:</p>
+<p><img alt="open_mixamo_motion_2_seq_retargeter_editor" src="img/open_mixamo_motion_2_seq_retargeter_editor.png" /></p>
+<p>In the <em>Chain Mapping</em> panel, we can set the mapping relationship between the source and target <em>Joint Chains</em>.</p>
+<p><img alt="source_and_target_chain_mapping" src="img/source_and_target_chain_mapping.png" /></p>
+<p>Then double-click on the asset in the <em>Motion Data Browser</em> to preview the retargeting result in the viewport.</p>
+<p><img alt="mixamo_motion_retargeter_browser" src="img/mixamo_motion_retargeter_browser.png" /></p>
+<p><img alt="mixamo_to_ue_mesh_preview" src="img/mixamo_to_ue_mesh_preview.gif" /></p>
+<h2 id="special-statement-and-acknowledgment">Special statement and acknowledgment</h2>
+<p>The resources used for demonstration in the video come from:</p>
+<p><a href="https://github.com/ubisoft/ubisoft-laforge-animation-dataset">ubisoft-laforge-animation-dataset</a></p>
+<p><a href="https://www.mixamo.com/#/">mixamo</a></p>
+<p><a href="https://www.ianxmason.com/100style/">www.ianxmason.com/100style</a></p>
+<p>The original image of the plugin's icon comes from:</p>
+<p><a href="https://unsplash.com/photos/90v3asMhhL0">unsplash.com/photos/90v3asMhhL0</a>
+Kate Rogge's dance moves are elegant and extraordinary.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.2.1
+Build Date UTC : 2025-04-12 14:15:39.452255+00:00
+-->
